@@ -1,0 +1,25 @@
+export interface Show {
+  id: string;
+  title: string;
+  date: string;
+  time: string;
+  venue: string;
+  image: string;
+  description: string;
+  reservationUrl: string;
+}
+
+export interface TroupeMember {
+  id: string;
+  name: string;
+  role: string;
+  image: string;
+  bio: string;
+}
+
+export interface ContactForm {
+  name: string;
+  email: string;
+  subject: string;
+  message: string;
+}

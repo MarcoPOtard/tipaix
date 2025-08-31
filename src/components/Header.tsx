@@ -16,7 +16,7 @@ export default function Header() {
       
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="flex justify-between items-center h-20">
-          <Link href="/version3" className="flex items-center group">
+          <Link href="/" className="flex items-center group">
             <div className="relative">
               <Image
                 src="/images/logo/logo-tipaix.png"
@@ -31,10 +31,10 @@ export default function Header() {
           
           <div className="hidden md:flex space-x-8">
             {[
-              { href: '/version3', label: 'Scène' },
-              { href: '/version3/spectacles', label: 'Représentations' },
-              { href: '/version3/troupe', label: 'La Compagnie' },
-              { href: '/version3/contact', label: 'Correspondance' },
+              { href: '/', label: 'Accueil' },
+              { href: '/spectacles', label: 'Spectacles' },
+              { href: '/troupe', label: 'La Tipaix' },
+              { href: '/contact', label: 'Contact' },
             ].map((item) => (
               <Link 
                 key={item.href}
@@ -74,32 +74,32 @@ export default function Header() {
           <div className="md:hidden pb-6 border-t border-tipaix-light border-opacity-30 mt-4 pt-4">
             <div className="flex flex-col space-y-4">
               <Link 
-                href="/version3" 
+                href="/" 
                 className="text-white hover:text-purple-100 transition-colors font-light tracking-wide py-2 px-3 hover:bg-white hover:bg-opacity-10 rounded"
                 onClick={() => setIsOpen(false)}
               >
-                Scène
+                Accueil
               </Link>
               <Link 
-                href="/version3/spectacles" 
+                href="/spectacles" 
                 className="text-white hover:text-purple-100 transition-colors font-light tracking-wide py-2 px-3 hover:bg-white hover:bg-opacity-10 rounded"
                 onClick={() => setIsOpen(false)}
               >
-                Représentations
+                Spectacles
               </Link>
               <Link 
-                href="/version3/troupe" 
+                href="/troupe" 
                 className="text-white hover:text-purple-100 transition-colors font-light tracking-wide py-2 px-3 hover:bg-white hover:bg-opacity-10 rounded"
                 onClick={() => setIsOpen(false)}
               >
-                La Compagnie
+                La Tipaix
               </Link>
               <Link 
-                href="/version3/contact" 
+                href="/contact" 
                 className="text-white hover:text-purple-100 transition-colors font-light tracking-wide py-2 px-3 hover:bg-white hover:bg-opacity-10 rounded"
                 onClick={() => setIsOpen(false)}
               >
-                Correspondance
+                Contact
               </Link>
               <a 
                 href="https://www.micim.fr" 

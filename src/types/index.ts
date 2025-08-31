@@ -4,6 +4,7 @@ export interface Show {
   date: string;
   time: string;
   venue: string;
+  address: string;
   image: string;
   description: string;
   reservationUrl: string;
@@ -22,4 +23,5 @@ export interface ContactForm {
   email: string;
   subject: string;
   message: string;
+  consent: boolean;
 }

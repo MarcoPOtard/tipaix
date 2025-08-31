@@ -11,13 +11,13 @@ export default function ShowCard({ show, index }: ShowCardProps) {
   return (
     <div className="group relative bg-black border border-tipaix-light border-opacity-30 rounded-lg overflow-hidden hover:border-tipaix-light transition-all duration-500">
       {/* Decorative corners */}
-      <div className="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-tipaix-light"></div>
-      <div className="absolute top-0 right-0 w-4 h-4 border-t-2 border-r-2 border-tipaix-light"></div>
-      <div className="absolute bottom-0 left-0 w-4 h-4 border-b-2 border-l-2 border-tipaix-light"></div>
-      <div className="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-tipaix-light"></div>
+      <div className="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-tipaix-light z-10"></div>
+      <div className="absolute top-0 right-0 w-4 h-4 border-t-2 border-r-2 border-tipaix-light z-10"></div>
+      <div className="absolute bottom-0 left-0 w-4 h-4 border-b-2 border-l-2 border-tipaix-light z-10"></div>
+      <div className="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-tipaix-light z-10"></div>
       
       <div className="relative h-64 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent z-10"></div>
+        <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent z-20"></div>
         <Image
           src={show.image}
           alt={show.title}
@@ -63,7 +63,7 @@ export default function ShowCard({ show, index }: ShowCardProps) {
         
         <div className="flex space-x-3">
           <Link 
-            href={`/version3/spectacles/${show.id}`}
+            href={`/spectacles/${show.id}`}
             className="flex-1 px-4 py-2 text-center border border-tipaix-light text-tipaix-light font-light tracking-wide hover:bg-tipaix-light hover:text-black transition-all duration-300 text-sm"
           >
             En savoir plus

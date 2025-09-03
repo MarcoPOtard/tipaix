@@ -36,7 +36,7 @@ export default function MentionsLegalesPage() {
                 <div className="w-12 h-px bg-tipaix-light mb-6"></div>
                 <div className="text-purple-200 font-light space-y-2 leading-relaxed">
                   <p><span className="text-tipaix-light font-medium">MICIM</span></p>
-                  <p>Magnifique I C Iimprovisé M</p>
+                  <p>Malicieuse et Intenable Compagnie d‘Impro Musicale</p>
                   <p>Association loi 1901</p>
                   <p>15 Avenue Jean Jaurès</p>
                   <p>13600 La Ciotat</p>

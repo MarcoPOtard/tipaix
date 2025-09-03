@@ -10,19 +10,17 @@ export const mockShows: Show[] = [
         address: "Allée Serge Attard, 13080 Aix-en-Provence",
         image: "/images/spectacles/spectacle-1.jpeg",
         description:
-            "Une soirée d'improvisation théâtrale pleine de rires et de surprises. Venez découvrir l'art de l'impro avec Tipaix !",
-        reservationUrl: "https://example.com/reserve/1",
+            "Une soirée d'improvisation théâtrale pleine de rires et de surprises. Venez découvrir l'art de l'impro avec Tipaix !"
     },
     {
         id: "2",
         title: "Match d'Impro",
-        date: "2025-11-15",
+        date: "2025-12-06",
         time: "19h00",
         venue: "Espace Ughetti",
         address: "Allée Serge Attard, 13080 Aix-en-Provence",
         image: "/images/spectacles/spectacle-3.jpeg",
         description:
-            "Un match d'improvisation théâtrale opposant Tipaix à une troupe invitée. Sport et théâtre réunis !",
-        reservationUrl: "https://example.com/reserve/2",
+            "Un match d'improvisation théâtrale opposant Tipaix à une troupe invitée. Sport et théâtre réunis !"
     }
 ];

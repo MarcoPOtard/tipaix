@@ -4,8 +4,8 @@
     "description": "Troupe de théâtre d'improvisation du pays d'Aix. Découvrez l'art de l'impro à travers nos matchs et spectacles.",
     "start_url": "/",
     "display": "standalone",
-    "background_color": "#000000",
-    "theme_color": "#8B5A96",
+    "background_color": "#6e5597",
+    "theme_color": "#6e5597",
     "orientation": "portrait-primary",
     "icons": [
         {

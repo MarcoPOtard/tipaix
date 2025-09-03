@@ -68,14 +68,6 @@ export default function ShowCard({ show, index }: ShowCardProps) {
           >
             En savoir plus
           </Link>
-          <a
-            href={show.reservationUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex-1 px-4 py-2 text-center bg-tipaix-light text-black font-medium tracking-wide hover:bg-purple-300 transition-all duration-300 text-sm"
-          >
-            Réservation
-          </a>
         </div>
       </div>
     </div>

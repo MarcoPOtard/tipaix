@@ -152,19 +152,8 @@ export default async function ShowDetailPage({ params }: ShowDetailPageProps) {
                   </h2>
                   <div className="w-12 h-px bg-tipaix-light mb-8"></div>
                   <p className="text-purple-200 font-light mb-8 leading-relaxed italic">
-                    "Réservez dès à présent votre place pour cette représentation unique. 
-                    Chaque spectacle d'improvisation est un moment privilégié, 
-                    une expérience théâtrale authentique et éphémère."
+                    "Réservez dès à présent ... Et non, pas besoin de réservation. Vous êtes tous les bienvenus gratuitement pour voir les jeunes en pleine actions"
                   </p>
-                  <a
-                    href={show.reservationUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-block px-8 py-4 border-2 border-tipaix-light text-tipaix-light font-light tracking-wide hover:bg-tipaix-light hover:text-black transition-all duration-500 relative group overflow-hidden"
-                  >
-                    <span className="relative z-10">Réserver votre Place</span>
-                    <div className="absolute inset-0 bg-tipaix-light transform -translate-x-full group-hover:translate-x-0 transition-transform duration-500"></div>
-                  </a>
                 </div>
               </div>
               

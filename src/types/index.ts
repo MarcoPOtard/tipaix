@@ -7,7 +7,6 @@ export interface Show {
   address: string;
   image: string;
   description: string;
-  reservationUrl: string;
 }
 
 export interface TroupeMember {

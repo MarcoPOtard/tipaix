@@ -1,5 +1,21 @@
 import ContactForm from '@/components/ContactForm';
 import Image from 'next/image';
+import { generateMetadata } from '@/lib/metadata';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = generateMetadata({
+    title: 'Contact - Tipaix',
+    description: 'Contactez la troupe de théâtre d\'improvisation Tipaix. Rejoignez-nous, posez vos questions ou découvrez nos horaires de répétition à Aix-en-Provence.',
+    keywords: [
+        'contact Tipaix',
+        'théâtre improvisation contact',
+        'rejoindre troupe théâtre',
+        'répétition Aix en Provence',
+        'cours improvisation',
+        'atelier théâtre'
+    ],
+    url: `${process.env.NEXT_PUBLIC_BASE_URL}/contact`,
+});
 
 export default function ContactPage() {
   return (

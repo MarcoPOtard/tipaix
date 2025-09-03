@@ -1,0 +1,21 @@
+# robots.txt for Tipaix
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://tipaix.com/sitemap.xml
+
+# Crawl-delay (optional, en secondes)
+Crawl-delay: 1
+
+# Disallow admin or sensitive areas (si applicable)
+# Disallow: /admin/
+# Disallow: /api/
+
+# Allow specific bots
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /

@@ -25,10 +25,26 @@ export default function ContactForm() {
   });
 
   const onSubmit = async (data: ContactFormType) => {
-    console.log('Contact form submitted:', data);
-    await new Promise(resolve => setTimeout(resolve, 1000));
-    alert('Votre message a été transmis avec succès !');
-    reset();
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+
+      if (response.ok) {
+        alert('Votre message a été transmis avec succès !');
+        reset();
+      } else {
+        const error = await response.json();
+        alert(`Erreur lors de l'envoi : ${error.error || 'Une erreur est survenue'}`);
+      }
+    } catch (error) {
+      console.error('Erreur lors de l\'envoi du formulaire:', error);
+      alert('Une erreur est survenue lors de l\'envoi de votre message. Veuillez réessayer.');
+    }
   };
 
   return (

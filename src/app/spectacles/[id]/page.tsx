@@ -2,11 +2,51 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { mockShows } from '@/data/shows';
 import { notFound } from 'next/navigation';
+import { generateMetadata as createMetadata } from '@/lib/metadata';
+import { Metadata } from 'next';
 
 interface ShowDetailPageProps {
   params: Promise<{
     id: string;
   }>;
+}
+
+export async function generateMetadata({ params }: ShowDetailPageProps): Promise<Metadata> {
+    const { id } = await params;
+    const show = mockShows.find(s => s.id === id);
+    
+    if (!show) {
+        return createMetadata({
+            title: 'Spectacle non trouvé - Tipaix',
+            description: 'Le spectacle demandé n\'a pas été trouvé.',
+        });
+    }
+
+    const showDate = new Date(show.date).toLocaleDateString('fr-FR', {
+        weekday: 'long',
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'
+    });
+
+    return createMetadata({
+        title: `${show.title} - Spectacle Tipaix`,
+        description: `${show.description} Spectacle de théâtre d'improvisation le ${showDate} à ${show.time} au ${show.venue}. Réservez vos places dès maintenant !`,
+        keywords: [
+            show.title,
+            'spectacle improvisation',
+            'match impro',
+            'théâtre Tipaix',
+            show.venue,
+            'réservation spectacle',
+            'improvisation théâtrale',
+            showDate.split(' ').slice(-3).join(' ') // mois année
+        ],
+        image: show.image,
+        url: `${process.env.NEXT_PUBLIC_BASE_URL}/spectacles/${show.id}`,
+        type: 'article',
+        publishedTime: new Date().toISOString(),
+    });
 }
 
 export default async function ShowDetailPage({ params }: ShowDetailPageProps) {

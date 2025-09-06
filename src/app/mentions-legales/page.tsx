@@ -45,8 +45,8 @@ export default function MentionsLegalesPage() {
                                         d‘Impro Musicale
                                     </p>
                                     <p>Association loi 1901</p>
-                                    <p>15 Avenue Jean Jaurès</p>
-                                    <p>13600 La Ciotat</p>
+                                    <p>124 boulevard de l'égalité - Les florentines A1</p>
+                                    <p>13320 Bouc Bel Air</p>
                                     <p>Email : micim@micim.fr</p>
                                     <p>
                                         Site web :{' '}
@@ -157,7 +157,7 @@ export default function MentionsLegalesPage() {
                                         <span className="text-tipaix-light font-medium">
                                             Responsables du traitement :
                                         </span>{' '}
-                                        Sébastien Chombard et Marc Potard.
+                                        Sébastien Chombart et Marc Potard.
                                     </p>
                                 </div>
                             </section>

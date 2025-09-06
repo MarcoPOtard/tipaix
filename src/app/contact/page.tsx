@@ -74,7 +74,7 @@ export default function ContactPage() {
                     <div>
                       <h3 className="font-medium text-tipaix-light mb-3 tracking-wide">Lieu de Répétition</h3>
                       <p className="text-purple-200 font-light leading-relaxed">
-                        Salle de la mairie annexe de Luynes<br/>
+                        Ancienne salle des mariages, sous la mairie annexe de Luynes<br/>
                         Place de la Libération<br/>
                         13080 Aix-en-Provence
                       </p>
@@ -93,6 +93,8 @@ export default function ContactPage() {
                     <p className="text-purple-200 font-light italic leading-relaxed">
                       L'art de l'improvisation vous appelle ? Nous accueillons avec plaisir 
                       les âmes créatives désireuses d'explorer cet univers fascinant.
+                      <br/>
+                      Cours d'essai en septembre.
                     </p>
                   </div>
                 </div>

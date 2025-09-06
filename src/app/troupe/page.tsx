@@ -129,52 +129,11 @@ export default function TroupePage() {
                                 <div className="w-16 h-px bg-tipaix-light mx-auto"></div>
                             </div>
 
-                            <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+                            <div className="">
                                 <div className="text-center">
-                                    <div className="text-5xl mb-6 opacity-70">
-                                        🎭
-                                    </div>
-                                    <h3 className="text-xl font-medium text-tipaix-light mb-6 tracking-wide">
-                                        Créativité
-                                    </h3>
-                                    <div className="w-8 h-px bg-tipaix-light mx-auto mb-6"></div>
+                                    
                                     <p className="text-purple-200 font-light leading-relaxed">
-                                        Nous croyons en la puissance
-                                        transcendante de l'imagination
-                                        collective et en la beauté éphémère de
-                                        l'instant créatif.
-                                    </p>
-                                </div>
-
-                                <div className="text-center">
-                                    <div className="text-5xl mb-6 opacity-70">
-                                        🤝
-                                    </div>
-                                    <h3 className="text-xl font-medium text-tipaix-light mb-6 tracking-wide">
-                                        Bienveillance
-                                    </h3>
-                                    <div className="w-8 h-px bg-tipaix-light mx-auto mb-6"></div>
-                                    <p className="text-purple-200 font-light leading-relaxed">
-                                        L'improvisation se nourrit de confiance
-                                        mutuelle et de l'acceptation généreuse
-                                        des propositions de chaque artiste.
-                                    </p>
-                                </div>
-
-                                <div className="text-center">
-                                    <div className="text-5xl mb-6 opacity-70">
-                                        ✨
-                                    </div>
-                                    <h3 className="text-xl font-medium text-tipaix-light mb-6 tracking-wide">
-                                        Émotion
-                                    </h3>
-                                    <div className="w-8 h-px bg-tipaix-light mx-auto mb-6"></div>
-                                    <p className="text-purple-200 font-light leading-relaxed">
-                                        Au cœur de notre art : le plaisir
-                                        authentique de jouer, de créer et de
-                                        partager des moments d'émotion pure avec
-                                        notre public.
-                                    </p>
+                                    Rendre l’art de l’impro accessible, c’est offrir à chaque jeune, dans toute sa diversité, la liberté d’exprimer sa créativité et de vivre l’instant présent.                                    </p>
                                 </div>
                             </div>
                         </div>

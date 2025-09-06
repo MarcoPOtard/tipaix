@@ -98,8 +98,8 @@ export default function Footer() {
                 <div className="border-t border-tipaix-light border-opacity-20 mt-12 pt-8">
                     <div className="text-center">
                         <p className="text-purple-200 font-light text-sm tracking-wide">
-                            © 2025 MICIM • Association de théâtre amateur
-                            d'Improvisation et Comédie Musicale Improvisée
+                            © 2025 MICIM • Malicieuse et Intenable Compagnie
+                            d&apos;Impro Musicale
                         </p>
                         <p className="text-purple-300 font-light text-xs mt-2 italic">
                             "Chaque représentation est unique, chaque moment est

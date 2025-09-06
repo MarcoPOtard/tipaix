@@ -59,10 +59,7 @@ export default function HomePage() {
                         <div className="w-24 h-px bg-tipaix-light mx-auto mb-8"></div>
 
                         <p className="text-lg md:text-xl text-purple-200 mb-12 max-w-3xl mx-auto font-light leading-relaxed italic">
-                            "Dans l'art de l'improvisation réside la véritable
-                            essence du théâtre : l'authenticité de l'instant, la
-                            beauté de l'imprévu, la magie de la création
-                            spontanée."
+                            "Pas besoin de texte : juste ton énergie, ton humour et ton imagination pour faire vibrer la scène !"
                         </p>
 
                         <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">

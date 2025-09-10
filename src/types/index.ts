@@ -23,4 +23,5 @@ export interface ContactForm {
   subject: string;
   message: string;
   consent: boolean;
+  newsletter?: boolean;
 }

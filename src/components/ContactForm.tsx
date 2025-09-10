@@ -12,6 +12,7 @@ const contactSchema = z.object({
   consent: z.boolean().refine(val => val === true, {
     message: 'Vous devez accepter la politique de confidentialité pour envoyer votre message'
   }),
+  newsletter: z.boolean().optional(),
 });
 
 export default function ContactForm() {
@@ -136,6 +137,19 @@ export default function ContactForm() {
         <p className="text-sm text-red-400 italic">{errors.consent.message}</p>
       )}
 
+      {/* Case à cocher newsletter */}
+      <div className="flex items-start space-x-3">
+        <input
+          {...register('newsletter')}
+          type="checkbox"
+          id="newsletter"
+          className="mt-1 w-4 h-4 text-tipaix-light bg-black bg-opacity-50 border border-tipaix-light border-opacity-30 rounded-none focus:ring-tipaix-light focus:ring-1"
+        />
+        <label htmlFor="newsletter" className="text-xs text-purple-200 font-light leading-relaxed">
+          Je souhaite recevoir la newsletter de La Tipaix pour être informé(e) des prochains spectacles et actualités de la compagnie.
+        </label>
+      </div>
+
       <button
         type="submit"
         disabled={isSubmitting}
@@ -151,9 +165,10 @@ export default function ContactForm() {
       <div className="bg-tipaix-light bg-opacity-5 border border-tipaix-light border-opacity-20 p-4 mt-4">
         <h4 className="text-sm font-medium text-tipaix-light mb-2 tracking-wide">Utilisation de vos données</h4>
         <p className="text-xs text-purple-200 font-light leading-relaxed">
-          Les informations recueillies via ce formulaire sont transmises à MICIM et La Tipaix 
-          pour répondre à votre demande. Elles sont conservées 1 an maximum et ne sont jamais 
-          transmises à des tiers.
+          Les informations recueillies via ce formulaire sont transmises à la MICIM et la Tipaix 
+          pour répondre à votre demande. Si vous cochez la case newsletter, votre adresse email 
+          sera également utilisée pour vous envoyer nos actualités. Toutes les données sont 
+          conservées 1 an maximum et ne sont jamais transmises à des tiers.
         </p>
       </div>
 

@@ -128,7 +128,9 @@ export default function MentionsLegalesPage() {
                                             Données collectées :
                                         </span>{' '}
                                         nom, adresse email, sujet et contenu du
-                                        message.
+                                        message. Si vous cochez la case newsletter,
+                                        votre adresse email sera également conservée
+                                        pour l'envoi de nos actualités.
                                     </p>
                                     <p>
                                         <span className="text-tipaix-light font-medium">
@@ -136,7 +138,9 @@ export default function MentionsLegalesPage() {
                                         </span>{' '}
                                         ces données sont utilisées exclusivement
                                         pour répondre à vos demandes de
-                                        renseignements.
+                                        renseignements et, si vous l'avez souhaité,
+                                        pour vous envoyer notre newsletter avec nos
+                                        actualités et informations sur nos spectacles.
                                     </p>
                                     <p>
                                         <span className="text-tipaix-light font-medium">

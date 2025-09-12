@@ -59,6 +59,7 @@ export default function ContactForm() {
             {...register('name')}
             type="text"
             id="name"
+            inputMode="text"
             className="w-full px-4 py-3 bg-black bg-opacity-50 border border-tipaix-light border-opacity-30 rounded-none text-purple-100 focus:border-tipaix-light focus:outline-none transition-colors backdrop-blur-sm"
           />
           {errors.name && (
@@ -74,6 +75,7 @@ export default function ContactForm() {
             {...register('email')}
             type="email"
             id="email"
+            inputMode="email"
             className="w-full px-4 py-3 bg-black bg-opacity-50 border border-tipaix-light border-opacity-30 rounded-none text-purple-100 focus:border-tipaix-light focus:outline-none transition-colors backdrop-blur-sm"
           />
           {errors.email && (
@@ -90,6 +92,7 @@ export default function ContactForm() {
           {...register('subject')}
           type="text"
           id="subject"
+          inputMode="text"
           className="w-full px-4 py-3 bg-black bg-opacity-50 border border-tipaix-light border-opacity-30 rounded-none text-purple-100 focus:border-tipaix-light focus:outline-none transition-colors backdrop-blur-sm"
         />
         {errors.subject && (

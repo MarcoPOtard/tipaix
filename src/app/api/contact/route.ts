@@ -10,6 +10,7 @@ const contactSchema = z.object({
     consent: z.boolean().refine(val => val === true, {
         message: 'Vous devez accepter la politique de confidentialité pour envoyer votre message'
     }),
+    newsletter: z.boolean().optional(),
 });
 
 export async function POST(request: NextRequest) {
@@ -46,6 +47,7 @@ export async function POST(request: NextRequest) {
                         <p><strong>Nom :</strong> ${validatedData.name}</p>
                         <p><strong>Email :</strong> ${validatedData.email}</p>
                         <p><strong>Sujet :</strong> ${validatedData.subject}</p>
+                        <p><strong>Newsletter :</strong> ${validatedData.newsletter ? 'Oui, souhaite recevoir la newsletter' : 'N\'a pas coché la case newsletter'}</p>
                     </div>
                     
                     <div style="margin: 20px 0;">
@@ -70,6 +72,7 @@ Nouveau message de contact - Tipaix
 Nom: ${validatedData.name}
 Email: ${validatedData.email}
 Sujet: ${validatedData.subject}
+Newsletter: ${validatedData.newsletter ? 'Oui, souhaite recevoir la newsletter' : 'N\'a pas coché la case newsletter'}
 
 Message:
 ${validatedData.message}

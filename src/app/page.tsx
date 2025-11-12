@@ -21,7 +21,15 @@ export const metadata: Metadata = generateMetadata({
 });
 
 export default function HomePage() {
-    const upcomingShows = mockShows.slice(0, 3);
+    const today = new Date();
+    today.setHours(0, 0, 0, 0); // Reset time to start of day for accurate comparison
+
+    const upcomingShows = mockShows
+        .filter(show => {
+            const showDate = new Date(show.date);
+            return showDate >= today;
+        })
+        .slice(0, 3);
 
     return (
         <div className="relative">

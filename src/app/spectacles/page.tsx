@@ -20,6 +20,14 @@ export const metadata: Metadata = generateMetadata({
 });
 
 export default function SpectaclesPage() {
+    const today = new Date();
+    today.setHours(0, 0, 0, 0); // Reset time to start of day for accurate comparison
+
+    const upcomingShows = mockShows.filter(show => {
+        const showDate = new Date(show.date);
+        return showDate >= today;
+    });
+
     return (
         <div className="relative min-h-screen bg-black">
             {/* Background image with overlay */}
@@ -51,17 +59,17 @@ export default function SpectaclesPage() {
 
                     <div
                         className={`grid gap-8 mb-32 justify-items-center ${
-                            mockShows.length === 1
+                            upcomingShows.length === 1
                                 ? 'grid-cols-1 max-w-sm mx-auto'
-                                : mockShows.length === 2
+                                : upcomingShows.length === 2
                                 ? 'grid-cols-1 md:grid-cols-2 max-w-2xl mx-auto'
-                                : mockShows.length % 3 === 1 &&
-                                  mockShows.length > 3
+                                : upcomingShows.length % 3 === 1 &&
+                                  upcomingShows.length > 3
                                 ? 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4'
                                 : 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3'
                         }`}
                     >
-                        {mockShows.map((show, index) => (
+                        {upcomingShows.map((show, index) => (
                             <ShowCard key={show.id} show={show} index={index} />
                         ))}
                     </div>

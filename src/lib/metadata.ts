@@ -12,7 +12,7 @@ interface MetadataConfig {
     modifiedTime?: string;
 }
 
-const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://tipaix.com';
+const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://www.tipaix.fr';
 const defaultImage = `${baseUrl}/images/og-image.jpg`;
 
 export function generateMetadata(config: MetadataConfig = {}): Metadata {

@@ -16,7 +16,7 @@ export const metadata: Metadata = generateMetadata({
         'match impro Aix',
         'événement théâtre'
     ],
-    url: `${process.env.NEXT_PUBLIC_BASE_URL}/spectacles`,
+    url: `${process.env.NEXT_PUBLIC_BASE_URL || 'https://www.tipaix.fr'}/spectacles`,
 });
 
 export default function SpectaclesPage() {

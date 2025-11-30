@@ -14,7 +14,7 @@ interface ShowDetailPageProps {
 export async function generateMetadata({ params }: ShowDetailPageProps): Promise<Metadata> {
     const { id } = await params;
     const show = mockShows.find(s => s.id === id);
-    
+
     if (!show) {
         return createMetadata({
             title: 'Spectacle non trouvé - Tipaix',
@@ -28,6 +28,8 @@ export async function generateMetadata({ params }: ShowDetailPageProps): Promise
         month: 'long',
         day: 'numeric'
     });
+
+    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://www.tipaix.fr';
 
     return createMetadata({
         title: `${show.title} - Spectacle Tipaix`,
@@ -43,7 +45,7 @@ export async function generateMetadata({ params }: ShowDetailPageProps): Promise
             showDate.split(' ').slice(-3).join(' ') // mois année
         ],
         image: show.image,
-        url: `${process.env.NEXT_PUBLIC_BASE_URL}/spectacles/${show.id}`,
+        url: `${baseUrl}/spectacles/${show.id}`,
         type: 'article',
         publishedTime: new Date().toISOString(),
     });

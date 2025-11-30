@@ -17,7 +17,7 @@ export const metadata: Metadata = generateMetadata({
         'improvisation théâtrale',
         'spectacle vivant Aix en Provence'
     ],
-    url: process.env.NEXT_PUBLIC_BASE_URL || 'https://tipaix.com',
+    url: process.env.NEXT_PUBLIC_BASE_URL || 'https://www.tipaix.fr',
 });
 
 export default function HomePage() {

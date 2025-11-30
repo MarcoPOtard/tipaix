@@ -1,4 +1,20 @@
 import Image from 'next/image';
+import { generateMetadata } from '@/lib/metadata';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = generateMetadata({
+    title: 'Mentions Légales - Tipaix',
+    description: 'Mentions légales du site Tipaix - Association MICIM, troupe de théâtre d\'improvisation. Informations sur l\'éditeur, l\'hébergement et la protection des données.',
+    keywords: [
+        'mentions légales Tipaix',
+        'MICIM',
+        'association théâtre',
+        'RGPD',
+        'protection données',
+        'informations légales'
+    ],
+    url: `${process.env.NEXT_PUBLIC_BASE_URL || 'https://www.tipaix.fr'}/mentions-legales`,
+});
 
 export default function MentionsLegalesPage() {
     return (

@@ -14,7 +14,7 @@ export const metadata: Metadata = generateMetadata({
         'cours improvisation',
         'atelier théâtre'
     ],
-    url: `${process.env.NEXT_PUBLIC_BASE_URL}/contact`,
+    url: `${process.env.NEXT_PUBLIC_BASE_URL || 'https://www.tipaix.fr'}/contact`,
 });
 
 export default function ContactPage() {

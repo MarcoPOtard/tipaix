@@ -14,7 +14,7 @@ export const metadata: Metadata = generateMetadata({
         'art improvisation',
         'match impro origine'
     ],
-    url: `${process.env.NEXT_PUBLIC_BASE_URL}/troupe`,
+    url: `${process.env.NEXT_PUBLIC_BASE_URL || 'https://www.tipaix.fr'}/troupe`,
 });
 
 export default function TroupePage() {

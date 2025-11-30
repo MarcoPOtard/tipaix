@@ -83,7 +83,7 @@ export default async function ShowDetailPage({ params }: ShowDetailPageProps) {
           <div className="bg-black bg-opacity-70 border border-tipaix-light border-opacity-20 backdrop-blur-sm overflow-hidden">
             {/* Decorative frame */}
             
-            <div className="relative h-96 overflow-hidden">
+            <div className="relative h-[36rem] overflow-hidden">
               <Image
                 src={show.image}
                 alt={show.title}

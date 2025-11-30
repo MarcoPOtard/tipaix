@@ -14,14 +14,14 @@ export const mockShows: Show[] = [
     },
     {
         id: "2",
-        title: "Match d'Impro",
+        title: "Match d'Impro face au Toucan",
         date: "2025-12-06",
         time: "19h00",
         venue: "Espace Ughetti",
         address: "Allée Serge Attard, 13080 Aix-en-Provence",
-        image: "/images/spectacles/spectacle-3.jpeg",
+        image: "/images/spectacles/logo-toucan.jpg",
         description:
-            "Un match d'improvisation théâtrale opposant Tipaix à une troupe invitée. Sport et théâtre réunis !"
+            "Pour ce match, vous aurez la chance de voir 2 matchs. La tipaix face au Toucan. 2 match à 6 contre 6, équipe débutante puis équipe confirmée. Une belle soirée explosive vous attent. Alors n'hésitez plus et rejoignez-nous. Le Toucan est la ligue d'improvisation de l'Isle sur la Sorgue"
     },
     {
         id: "3",

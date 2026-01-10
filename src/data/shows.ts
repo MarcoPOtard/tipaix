@@ -25,25 +25,25 @@ export const mockShows: Show[] = [
     },
     {
         id: "3",
-        title: "Match d'Impro",
+        title: "Match d'Impro, la Tipaix contre la Tipaix",
         date: "2026-01-17",
         time: "19h00",
         venue: "Espace Ughetti",
         address: "Allée Serge Attard, 13080 Aix-en-Provence",
         image: "/images/spectacles/spectacle-2.jpeg",
         description:
-            "Un match d'improvisation théâtrale opposant Tipaix à une troupe invitée. Sport et théâtre réunis !"
+            "Un match d'improvisation théâtrale opposant la Tipaix à elle même. Qui sera le grand vainqueur ?"
     },
     {
         id: "4",
-        title: "Match d'Impro",
+        title: "Match d'Impro multi invités",
         date: "2026-03-07",
         time: "19h00",
         venue: "Espace Ughetti",
         address: "Allée Serge Attard, 13080 Aix-en-Provence",
         image: "/images/spectacles/spectacle-1.jpeg",
         description:
-            "Un match d'improvisation théâtrale opposant Tipaix à une troupe invitée. Sport et théâtre réunis !"
+            "Un match d'improvisation théâtrale opposant la Tipaix à la Limax de Villelaure et Salon de Provence. Double affiche, double match, double kiff !!!"
     }
 
 ];

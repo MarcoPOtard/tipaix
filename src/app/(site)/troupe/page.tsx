@@ -1,6 +1,10 @@
 import Image from "next/image";
+import SanityImage from "@/components/SanityImage";
+import { PortableText } from "next-sanity";
 import { generateMetadata } from '@/lib/metadata';
 import { Metadata } from 'next';
+import { sanityFetch } from '@/sanity/lib/live';
+import { TROUPE_PAGE_QUERY } from '@/sanity/queries';
 
 export const metadata: Metadata = generateMetadata({
     title: 'La Troupe - Tipaix',
@@ -17,7 +21,9 @@ export const metadata: Metadata = generateMetadata({
     url: `${process.env.NEXT_PUBLIC_BASE_URL || 'https://www.tipaix.fr'}/troupe`,
 });
 
-export default function TroupePage() {
+export default async function TroupePage() {
+    const { data: troupePage } = await sanityFetch({ query: TROUPE_PAGE_QUERY });
+
     return (
         <div className="relative min-h-screen bg-black">
             {/* Background image with overlay */}
@@ -41,10 +47,7 @@ export default function TroupePage() {
                         </h1>
                         <div className="w-24 h-px bg-tipaix-light mx-auto mb-8"></div>
                         <p className="text-xl text-purple-200 font-light italic max-w-4xl mx-auto leading-relaxed">
-                            &quot;Une famille de jeunes artistes unis par l&apos;envie
-                            d&apos;apprendre l&apos;improvisation théâtrale, où chaque
-                            personnalité contribue à la magie collective de la
-                            création spontanée.&quot;
+                            &quot;{troupePage?.introQuote}&quot;
                         </p>
                     </div>
 
@@ -60,10 +63,9 @@ export default function TroupePage() {
                                     <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-tipaix-light"></div>
 
                                     <div className="relative h-96 overflow-hidden">
-                                        <Image
-                                            src="/images/troupe/troupe1.jpeg"
+                                        <SanityImage
+                                            image={troupePage?.genesisImage}
                                             alt="Compagnie Tipaix en répétition"
-                                            fill
                                             sizes="(min-width: 1024px) 50vw, 100vw"
                                             className="object-cover filter sepia-[0.3] contrast-110 group-hover:scale-105 transition-transform duration-700"
                                         />
@@ -79,43 +81,9 @@ export default function TroupePage() {
                                 <div className="w-16 h-px bg-tipaix-light mb-8"></div>
 
                                 <div className="space-y-6 text-lg text-purple-200 font-light leading-relaxed">
-                                    <p>
-                                        La Tipaix pour troupe d&apos;improvisation du
-                                        pays d&apos;Aix est née de l&apos;initiative d&apos;un
-                                        improvisateur d&apos;Aix en Provence membre
-                                        de l&apos;association Les Fondus depuis près
-                                        de 15 ans.
-                                        <br />
-                                        Sébastien Chombart ou Séboune pour les
-                                        intimes.
-                                    </p>
-
-                                    <p>
-                                        L&apos;objectif de ce projet est de faire
-                                        découvrir l&apos;art de l&apos;improvisation
-                                        théâtrale auprès des adolescents au
-                                        travers du concept phare de l&apos;impro !!
-                                        <br />
-                                        <strong>
-                                            &quot;Le match d&apos;improvisation&quot;
-                                        </strong>
-                                    </p>
-
-                                    <p>
-                                        Sous la forme d&apos;un jeu théâtrale, le
-                                        jeune improvisateur ou improvisatrice va
-                                        développer de puissants outils
-                                        personnels.
-                                        <br />
-                                        Développement de la Confiance en Soi,
-                                        Stimulation de la Créativité,
-                                        Amélioration des Compétences Sociales,
-                                        Développement du Langage et de
-                                        l’Expression, Gestion des Émotions,
-                                        Développement de l’Adaptabilité,
-                                        Renforcement de la Concentration et
-                                        construction d&apos;une pensée critique.
-                                    </p>
+                                    {troupePage?.genesisText && (
+                                        <PortableText value={troupePage.genesisText} />
+                                    )}
                                 </div>
                             </div>
                         </div>
@@ -131,12 +99,10 @@ export default function TroupePage() {
                                 <div className="w-16 h-px bg-tipaix-light mx-auto"></div>
                             </div>
 
-                            <div className="">
-                                <div className="text-center">
-                                    
-                                    <p className="text-purple-200 font-light leading-relaxed">
-                                    Rendre l’art de l’impro accessible, c’est offrir à chaque jeune, dans toute sa diversité, la liberté d’exprimer sa créativité et de vivre l’instant présent.                                    </p>
-                                </div>
+                            <div className="text-purple-200 font-light leading-relaxed text-center">
+                                {troupePage?.philosophyText && (
+                                    <PortableText value={troupePage.philosophyText} />
+                                )}
                             </div>
                         </div>
                     </section>

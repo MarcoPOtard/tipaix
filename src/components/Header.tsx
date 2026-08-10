@@ -2,9 +2,15 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { useState } from 'react';
+import type { SITE_SETTINGS_QUERY_RESULT } from '@/sanity.types';
 
-export default function Header() {
+interface HeaderProps {
+  navigation: NonNullable<SITE_SETTINGS_QUERY_RESULT>['navigation'] | undefined;
+}
+
+export default function Header({ navigation }: HeaderProps) {
   const [isOpen, setIsOpen] = useState(false);
+  const items = navigation ?? [];
 
   return (
     <header className="bg-linear-to-r from-tipaix-primary to-tipaix-dark border-b border-tipaix-light relative overflow-hidden">
@@ -13,7 +19,7 @@ export default function Header() {
         <div className="absolute top-0 left-0 w-full h-1 bg-linear-to-r from-transparent via-tipaix-light to-transparent"></div>
         <div className="absolute bottom-0 left-0 w-full h-1 bg-linear-to-r from-transparent via-tipaix-light to-transparent"></div>
       </div>
-      
+
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="flex justify-between items-center h-20">
           <Link href="/" className="flex items-center group">
@@ -28,33 +34,32 @@ export default function Header() {
               />
             </div>
           </Link>
-          
+
           <div className="hidden md:flex space-x-8">
-            {[
-              { href: '/', label: 'Accueil' },
-              { href: '/spectacles', label: 'Spectacles' },
-              { href: '/troupe', label: 'La Tipaix' },
-              { href: '/contact', label: 'Contact' },
-            ].map((item) => (
-              <Link 
-                key={item.href}
-                href={item.href} 
-                className="relative text-white font-light tracking-wide hover:text-purple-100 transition-all duration-300 group py-2"
-              >
-                <span className="relative z-10">{item.label}</span>
-                <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-linear-to-r from-tipaix-light to-tipaix-primary group-hover:w-full transition-all duration-500"></div>
-                <div className="absolute inset-0 bg-white opacity-0 group-hover:opacity-5 rounded-sm transition-opacity duration-300"></div>
-              </Link>
-            ))}
-            <a 
-              href="https://www.micim.fr" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="relative text-white font-light tracking-wide hover:text-purple-100 transition-all duration-300 group py-2"
-            >
-              <span className="relative z-10">Micim</span>
-              <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-linear-to-r from-tipaix-light to-tipaix-primary group-hover:w-full transition-all duration-500"></div>
-            </a>
+            {items.map((item) =>
+              item.href?.startsWith('http') ? (
+                <a
+                  key={item.href}
+                  href={item.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="relative text-white font-light tracking-wide hover:text-purple-100 transition-all duration-300 group py-2"
+                >
+                  <span className="relative z-10">{item.label}</span>
+                  <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-linear-to-r from-tipaix-light to-tipaix-primary group-hover:w-full transition-all duration-500"></div>
+                </a>
+              ) : (
+                <Link
+                  key={item.href}
+                  href={item.href ?? '/'}
+                  className="relative text-white font-light tracking-wide hover:text-purple-100 transition-all duration-300 group py-2"
+                >
+                  <span className="relative z-10">{item.label}</span>
+                  <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-linear-to-r from-tipaix-light to-tipaix-primary group-hover:w-full transition-all duration-500"></div>
+                  <div className="absolute inset-0 bg-white opacity-0 group-hover:opacity-5 rounded-sm transition-opacity duration-300"></div>
+                </Link>
+              )
+            )}
           </div>
 
           <button
@@ -76,42 +81,28 @@ export default function Header() {
         {isOpen && (
           <div id="mobile-menu" className="md:hidden pb-6 border-t border-tipaix-light border-opacity-30 mt-4 pt-4">
             <div className="flex flex-col space-y-4">
-              <Link 
-                href="/" 
-                className="text-white hover:text-purple-100 transition-colors font-light tracking-wide py-2 px-3 hover:bg-white hover:bg-opacity-10 rounded-sm"
-                onClick={() => setIsOpen(false)}
-              >
-                Accueil
-              </Link>
-              <Link 
-                href="/spectacles" 
-                className="text-white hover:text-purple-100 transition-colors font-light tracking-wide py-2 px-3 hover:bg-white hover:bg-opacity-10 rounded-sm"
-                onClick={() => setIsOpen(false)}
-              >
-                Spectacles
-              </Link>
-              <Link 
-                href="/troupe" 
-                className="text-white hover:text-purple-100 transition-colors font-light tracking-wide py-2 px-3 hover:bg-white hover:bg-opacity-10 rounded-sm"
-                onClick={() => setIsOpen(false)}
-              >
-                La Tipaix
-              </Link>
-              <Link 
-                href="/contact" 
-                className="text-white hover:text-purple-100 transition-colors font-light tracking-wide py-2 px-3 hover:bg-white hover:bg-opacity-10 rounded-sm"
-                onClick={() => setIsOpen(false)}
-              >
-                Contact
-              </Link>
-              <a 
-                href="https://www.micim.fr" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="text-white hover:text-purple-100 transition-colors font-light tracking-wide py-2 px-3 hover:bg-white hover:bg-opacity-10 rounded-sm"
-              >
-                Micim
-              </a>
+              {items.map((item) =>
+                item.href?.startsWith('http') ? (
+                  <a
+                    key={item.href}
+                    href={item.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-white hover:text-purple-100 transition-colors font-light tracking-wide py-2 px-3 hover:bg-white hover:bg-opacity-10 rounded-sm"
+                  >
+                    {item.label}
+                  </a>
+                ) : (
+                  <Link
+                    key={item.href}
+                    href={item.href ?? '/'}
+                    className="text-white hover:text-purple-100 transition-colors font-light tracking-wide py-2 px-3 hover:bg-white hover:bg-opacity-10 rounded-sm"
+                    onClick={() => setIsOpen(false)}
+                  >
+                    {item.label}
+                  </Link>
+                )
+              )}
             </div>
           </div>
         )}

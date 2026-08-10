@@ -1,14 +1,3 @@
-export interface Show {
-  id: string;
-  title: string;
-  date: string;
-  time: string;
-  venue: string;
-  address: string;
-  image: string;
-  description: string;
-}
-
 export interface TroupeMember {
   id: string;
   name: string;

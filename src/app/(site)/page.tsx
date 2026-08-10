@@ -1,7 +1,8 @@
-import Image from "next/image";
 import Link from "next/link";
 import ShowCard from "@/components/ShowCard";
-import { mockShows } from "@/data/shows";
+import SanityImage from "@/components/SanityImage";
+import { sanityFetch } from "@/sanity/lib/live";
+import { HOME_PAGE_QUERY, SHOWS_QUERY } from "@/sanity/queries";
 import { getUpcomingShows } from "@/lib/shows";
 import { generateMetadata } from "@/lib/metadata";
 import { Metadata } from 'next';
@@ -21,8 +22,13 @@ export const metadata: Metadata = generateMetadata({
     url: process.env.NEXT_PUBLIC_BASE_URL || 'https://www.tipaix.fr',
 });
 
-export default function HomePage() {
-    const upcomingShows = getUpcomingShows(mockShows).slice(0, 3);
+export default async function HomePage() {
+    const [{ data: homePage }, { data: shows }] = await Promise.all([
+        sanityFetch({ query: HOME_PAGE_QUERY }),
+        sanityFetch({ query: SHOWS_QUERY }),
+    ]);
+
+    const upcomingShows = getUpcomingShows(shows).slice(0, 3);
 
     return (
         <div className="relative">
@@ -30,10 +36,9 @@ export default function HomePage() {
             <section className="relative min-h-screen bg-black overflow-hidden">
                 {/* Background image with overlay */}
                 <div className="absolute inset-0">
-                    <Image
-                        src="/images/groupe-match.jpeg"
+                    <SanityImage
+                        image={homePage?.heroImage}
                         alt="La Tipaix en action"
-                        fill
                         sizes="100vw"
                         className="object-cover filter sepia-[0.4] contrast-110"
                         priority
@@ -55,13 +60,13 @@ export default function HomePage() {
                         </h1>
 
                         <div className="text-xl md:text-2xl text-purple-100 mb-4 font-light tracking-widest uppercase">
-                            Troupe de Théâtre d&apos;Improvisation
+                            {homePage?.heroSubtitle}
                         </div>
 
                         <div className="w-24 h-px bg-tipaix-light mx-auto mb-8"></div>
 
                         <p className="text-lg md:text-xl text-purple-200 mb-12 max-w-3xl mx-auto font-light leading-relaxed italic">
-                            &quot;Pas besoin de texte : juste ton énergie, ton humour et ton imagination pour faire vibrer la scène !&quot;
+                            &quot;{homePage?.heroQuote}&quot;
                         </p>
 
                         <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
@@ -114,7 +119,7 @@ export default function HomePage() {
                         }`}
                     >
                         {upcomingShows.map((show) => (
-                            <ShowCard key={show.id} show={show} />
+                            <ShowCard key={show._id} show={show} />
                         ))}
                     </div>
 
@@ -145,10 +150,9 @@ export default function HomePage() {
                                 <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-tipaix-light"></div>
 
                                 <div className="relative h-96 overflow-hidden">
-                                    <Image
-                                        src="/images/troupe/troupe1.jpeg"
+                                    <SanityImage
+                                        image={homePage?.artImage}
                                         alt="Compagnie Tipaix"
-                                        fill
                                         sizes="(min-width: 1024px) 50vw, 100vw"
                                         className="object-cover filter sepia-[0.3] contrast-110 group-hover:scale-105 transition-transform duration-700"
                                     />
@@ -164,16 +168,8 @@ export default function HomePage() {
 
                             <div className="w-16 h-px bg-tipaix-light mb-8"></div>
 
-                            <div className="space-y-6 text-lg text-purple-200 font-light leading-relaxed">
-                                <p>
-                                    La Tipaix pour troupe d&apos;improvisation du
-                                    pays d&apos;Aix a pour objectif de faire
-                                    découvrir l&apos;art de l&apos;improvisation théâtrale
-                                    auprès des adolescents au travers du concept
-                                    phare de l&apos;impro !!
-                                    <br />
-                                    <strong className="text-xl font-bold">&quot;Le match d&apos;improvisation&quot;</strong>
-                                </p>
+                            <div className="space-y-6 text-lg text-purple-200 font-light leading-relaxed whitespace-pre-line">
+                                <p>{homePage?.artText}</p>
                             </div>
 
                             <div className="mt-10">
@@ -203,10 +199,7 @@ export default function HomePage() {
                             &quot;
                         </div>
                         <blockquote className="text-2xl md:text-3xl text-purple-200 font-light italic leading-relaxed -mt-12 mb-8">
-                            Le théâtre d&apos;improvisation n&apos;est pas seulement un
-                            spectacle, c&apos;est un art de vivre, une philosophie de
-                            l&apos;instant présent où chaque moment compte et chaque
-                            émotion trouve sa vérité.
+                            {homePage?.quoteText}
                         </blockquote>
                         <div className="text-8xl text-tipaix-light opacity-20 font-gagalin leading-none float-right -mb-8">
                             &quot;

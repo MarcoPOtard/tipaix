@@ -1,7 +1,25 @@
 import Link from "next/link";
 import Image from "next/image";
+import type { SITE_SETTINGS_QUERY_RESULT } from '@/sanity.types';
 
-export default function Footer() {
+interface FooterProps {
+    navigation: NonNullable<SITE_SETTINGS_QUERY_RESULT>['navigation'] | undefined;
+    socialLinks: NonNullable<SITE_SETTINGS_QUERY_RESULT>['socialLinks'] | undefined;
+}
+
+const PLATFORM_LABELS: Record<string, string> = {
+    instagram: 'Instagram',
+    facebook: 'Facebook',
+    tiktok: 'TikTok',
+    youtube: 'YouTube',
+    other: 'Autre',
+};
+
+export default function Footer({ navigation, socialLinks }: FooterProps) {
+    const items = navigation ?? [];
+    const internalLinks = items.filter((item) => !item.href?.startsWith('http'));
+    const externalLinks = items.filter((item) => item.href?.startsWith('http'));
+
     return (
         <footer className="bg-black border-t border-tipaix-light border-opacity-30 relative">
             {/* Decorative curtain effect */}
@@ -33,38 +51,16 @@ export default function Footer() {
                             Navigation
                         </h3>
                         <ul className="space-y-3">
-                            <li>
-                                <Link
-                                    href="/"
-                                    className="text-purple-100 hover:text-tipaix-light transition-colors font-light tracking-wide"
-                                >
-                                    Accueil
-                                </Link>
-                            </li>
-                            <li>
-                                <Link
-                                    href="/spectacles"
-                                    className="text-purple-100 hover:text-tipaix-light transition-colors font-light tracking-wide"
-                                >
-                                    Spectacles
-                                </Link>
-                            </li>
-                            <li>
-                                <Link
-                                    href="/troupe"
-                                    className="text-purple-100 hover:text-tipaix-light transition-colors font-light tracking-wide"
-                                >
-                                    La Tipaix
-                                </Link>
-                            </li>
-                            <li>
-                                <Link
-                                    href="/contact"
-                                    className="text-purple-100 hover:text-tipaix-light transition-colors font-light tracking-wide"
-                                >
-                                    Contact
-                                </Link>
-                            </li>
+                            {internalLinks.map((item) => (
+                                <li key={item.href}>
+                                    <Link
+                                        href={item.href ?? '/'}
+                                        className="text-purple-100 hover:text-tipaix-light transition-colors font-light tracking-wide"
+                                    >
+                                        {item.label}
+                                    </Link>
+                                </li>
+                            ))}
                         </ul>
                     </div>
 
@@ -81,16 +77,30 @@ export default function Footer() {
                                     Mentions légales
                                 </Link>
                             </li>
-                            <li>
-                                <a
-                                    href="https://www.micim.fr"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="text-purple-100 hover:text-tipaix-light transition-colors font-light tracking-wide"
-                                >
-                                    Micim
-                                </a>
-                            </li>
+                            {externalLinks.map((item) => (
+                                <li key={item.href}>
+                                    <a
+                                        href={item.href ?? undefined}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="text-purple-100 hover:text-tipaix-light transition-colors font-light tracking-wide"
+                                    >
+                                        {item.label}
+                                    </a>
+                                </li>
+                            ))}
+                            {socialLinks?.map((social) => (
+                                <li key={social.url}>
+                                    <a
+                                        href={social.url ?? undefined}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="text-purple-100 hover:text-tipaix-light transition-colors font-light tracking-wide"
+                                    >
+                                        {PLATFORM_LABELS[social.platform ?? 'other']}
+                                    </a>
+                                </li>
+                            ))}
                         </ul>
                     </div>
                 </div>

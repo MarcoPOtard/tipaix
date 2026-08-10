@@ -1,9 +1,10 @@
 import { MetadataRoute } from 'next';
-import { mockShows } from '@/data/shows';
+import { client } from '@/sanity/client';
+import { SHOW_SLUGS_QUERY } from '@/sanity/queries';
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://www.tipaix.fr';
-    
+
     // Pages statiques
     const staticPages = [
         {
@@ -37,14 +38,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
             priority: 0.3,
         },
     ];
-    
+
     // Pages dynamiques des spectacles
-    const showPages = mockShows.map((show) => ({
-        url: `${baseUrl}/spectacles/${show.id}`,
+    const slugs = await client.fetch(SHOW_SLUGS_QUERY, {}, { stega: false });
+    const showPages = slugs.map((slug) => ({
+        url: `${baseUrl}/spectacles/${slug}`,
         lastModified: new Date(),
         changeFrequency: 'weekly' as const,
         priority: 0.6,
     }));
-    
+
     return [...staticPages, ...showPages];
 }

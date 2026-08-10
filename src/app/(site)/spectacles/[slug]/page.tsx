@@ -1,20 +1,32 @@
-import Image from 'next/image';
 import Link from 'next/link';
-import { mockShows } from '@/data/shows';
+import SanityImage from '@/components/SanityImage';
 import { formatShowDate } from '@/lib/shows';
 import { notFound } from 'next/navigation';
 import { generateMetadata as createMetadata } from '@/lib/metadata';
 import { Metadata } from 'next';
+import { sanityFetch } from '@/sanity/lib/live';
+import { SHOW_BY_SLUG_QUERY } from '@/sanity/queries';
 
 interface ShowDetailPageProps {
   params: Promise<{
-    id: string;
+    slug: string;
   }>;
 }
 
+async function getShow(slug: string, stega: boolean) {
+  const { data } = await sanityFetch({
+    query: SHOW_BY_SLUG_QUERY,
+    params: { slug },
+    stega,
+  });
+  return data;
+}
+
 export async function generateMetadata({ params }: ShowDetailPageProps): Promise<Metadata> {
-    const { id } = await params;
-    const show = mockShows.find(s => s.id === id);
+    const { slug } = await params;
+    // stega désactivé : ces valeurs finissent dans <title>/<meta>, jamais de
+    // caractères invisibles dans le <head>.
+    const show = await getShow(slug, false);
 
     if (!show) {
         return createMetadata({
@@ -23,7 +35,7 @@ export async function generateMetadata({ params }: ShowDetailPageProps): Promise
         });
     }
 
-    const showDate = formatShowDate(show.date);
+    const showDate = formatShowDate(show.date ?? '');
 
     const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://www.tipaix.fr';
 
@@ -31,26 +43,25 @@ export async function generateMetadata({ params }: ShowDetailPageProps): Promise
         title: `${show.title} - Spectacle Tipaix`,
         description: `${show.description} Spectacle de théâtre d'improvisation le ${showDate} à ${show.time} au ${show.venue}. Réservez vos places dès maintenant !`,
         keywords: [
-            show.title,
+            show.title ?? '',
             'spectacle improvisation',
             'match impro',
             'théâtre Tipaix',
-            show.venue,
+            show.venue ?? '',
             'réservation spectacle',
             'improvisation théâtrale',
             showDate.split(' ').slice(-3).join(' ') // mois année
         ],
-        image: show.image,
-        url: `${baseUrl}/spectacles/${show.id}`,
+        url: `${baseUrl}/spectacles/${show.slug}`,
         type: 'article',
         publishedTime: new Date().toISOString(),
     });
 }
 
 export default async function ShowDetailPage({ params }: ShowDetailPageProps) {
-  const { id } = await params;
-  const show = mockShows.find(s => s.id === id);
-  
+  const { slug } = await params;
+  const show = await getShow(slug, true);
+
   if (!show) {
     notFound();
   }
@@ -59,10 +70,9 @@ export default async function ShowDetailPage({ params }: ShowDetailPageProps) {
     <div className="relative min-h-screen bg-black">
       {/* Background image with overlay */}
       <div className="absolute inset-0">
-        <Image
-          src={show.image}
-          alt={show.title}
-          fill
+        <SanityImage
+          image={show.image}
+          alt={show.title ?? ''}
           sizes="100vw"
           className="object-cover filter sepia-[0.4] contrast-110"
         />
@@ -72,27 +82,26 @@ export default async function ShowDetailPage({ params }: ShowDetailPageProps) {
 
       <div className="relative z-20 py-32">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Link 
+          <Link
             href="/spectacles"
             className="inline-flex items-center text-tipaix-light hover:text-purple-300 mb-12 font-light tracking-wide transition-colors"
           >
             ← Retour aux Représentations
           </Link>
-          
+
           <div className="bg-black bg-opacity-70 border border-tipaix-light border-opacity-20 backdrop-blur-xs overflow-hidden">
             {/* Decorative frame */}
-            
+
             <div className="relative h-144 overflow-hidden">
-              <Image
-                src={show.image}
-                alt={show.title}
-                fill
+              <SanityImage
+                image={show.image}
+                alt={show.title ?? ''}
                 sizes="(min-width: 1024px) 1024px, 100vw"
                 className="object-cover filter sepia-[0.3] contrast-110"
               />
               <div className="absolute inset-0 bg-linear-to-t from-black via-transparent to-transparent"></div>
               <div className="absolute inset-0 bg-tipaix-light mix-blend-multiply opacity-15"></div>
-              
+
               {/* Title overlay */}
               <div className="absolute bottom-8 left-8 right-8">
                 <h1 className="font-gagalin text-4xl md:text-5xl text-tipaix-light mb-2 tracking-wider">
@@ -101,7 +110,7 @@ export default async function ShowDetailPage({ params }: ShowDetailPageProps) {
                 <div className="w-16 h-px bg-tipaix-light"></div>
               </div>
             </div>
-            
+
             <div className="p-12">
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-12">
                 <div>
@@ -113,7 +122,7 @@ export default async function ShowDetailPage({ params }: ShowDetailPageProps) {
                     <div className="flex items-center">
                       <span className="text-2xl mr-4 opacity-70">📅</span>
                       <span className="text-purple-200 font-light">
-                        {formatShowDate(show.date)}
+                        {formatShowDate(show.date ?? '')}
                       </span>
                     </div>
                     <div className="flex items-center">
@@ -126,7 +135,7 @@ export default async function ShowDetailPage({ params }: ShowDetailPageProps) {
                         <div className="font-medium text-tipaix-light mb-1">{show.venue}</div>
                         <div className="text-sm leading-relaxed mb-3">{show.address}</div>
                         <a
-                          href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(show.address)}`}
+                          href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(show.address ?? '')}`}
                           target="_blank"
                           rel="noopener noreferrer"
                           className="inline-flex items-center text-xs text-purple-100 hover:text-tipaix-light transition-colors font-light tracking-wide underline underline-offset-2 hover:no-underline"
@@ -140,7 +149,7 @@ export default async function ShowDetailPage({ params }: ShowDetailPageProps) {
                     </div>
                   </div>
                 </div>
-                
+
                 <div>
                   <h2 className="font-gagalin text-2xl text-tipaix-light mb-8 tracking-wide">
                     Réservation
@@ -151,7 +160,7 @@ export default async function ShowDetailPage({ params }: ShowDetailPageProps) {
                   </p>
                 </div>
               </div>
-              
+
               <div className="border-t border-tipaix-light border-opacity-20 pt-12">
                 <h2 className="font-gagalin text-2xl text-tipaix-light mb-8 tracking-wide">
                   À propos de cette Représentation
@@ -162,7 +171,7 @@ export default async function ShowDetailPage({ params }: ShowDetailPageProps) {
                     &quot;{show.description}&quot;
                   </p>
                   <p className="text-sm opacity-80">
-                    Une soirée d&apos;improvisation théâtrale où talent, spontanéité et émotion 
+                    Une soirée d&apos;improvisation théâtrale où talent, spontanéité et émotion
                     se rencontrent pour créer un spectacle unique et inoubliable.
                   </p>
                 </div>

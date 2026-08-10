@@ -26,6 +26,7 @@ export default function TroupePage() {
                     src="/images/troupe/troupe1.jpeg"
                     alt="La Tipaix"
                     fill
+                    sizes="100vw"
                     className="object-cover filter sepia-[0.4] contrast-110"
                 />
                 <div className="absolute inset-0 bg-linear-to-b from-black via-black/85 to-black"></div>
@@ -63,6 +64,7 @@ export default function TroupePage() {
                                             src="/images/troupe/troupe1.jpeg"
                                             alt="Compagnie Tipaix en répétition"
                                             fill
+                                            sizes="(min-width: 1024px) 50vw, 100vw"
                                             className="object-cover filter sepia-[0.3] contrast-110 group-hover:scale-105 transition-transform duration-700"
                                         />
                                         <div className="absolute inset-0 bg-tipaix-light mix-blend-multiply opacity-15 group-hover:opacity-20 transition-opacity duration-500"></div>

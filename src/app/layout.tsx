@@ -7,6 +7,8 @@ import { Metadata, Viewport } from 'next';
 
 const inter = Inter({ subsets: ['latin'] });
 
+const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://www.tipaix.fr';
+
 export const metadata: Metadata = generateMetadata();
 
 export const viewport: Viewport = {
@@ -35,15 +37,10 @@ export default function RootLayout({
             <meta name="apple-mobile-web-app-title" content="Tipaix" />
             <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
             <link rel="manifest" href="/site.webmanifest" />
-            <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#8B5A96" />
             <meta name="msapplication-TileColor" content="#8B5A96" />
             <meta name="format-detection" content="telephone=no" />
 
-        
-        {/* Preconnect to external domains for performance */}
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        
+
         {/* JSON-LD Structured Data */}
         <script
           type="application/ld+json"
@@ -53,9 +50,9 @@ export default function RootLayout({
               "@type": "TheaterGroup",
               "name": "Tipaix",
               "description": "Troupe de théâtre d'improvisation du pays d'Aix spécialisée dans les matchs d'impro et spectacles d'improvisation théâtrale",
-              "url": "https://tipaix.com",
-              "logo": "https://tipaix.com/images/logo.png",
-              "image": "https://tipaix.com/images/og-image.jpg",
+              "url": baseUrl,
+              "logo": `${baseUrl}/images/logo/logo-tipaix.png`,
+              "image": `${baseUrl}/images/groupe-match.jpeg`,
               "address": {
                 "@type": "PostalAddress",
                 "addressLocality": "Aix-en-Provence",

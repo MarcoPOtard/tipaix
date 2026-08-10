@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { mockShows } from '@/data/shows';
+import { formatShowDate } from '@/lib/shows';
 import { notFound } from 'next/navigation';
 import { generateMetadata as createMetadata } from '@/lib/metadata';
 import { Metadata } from 'next';
@@ -22,12 +23,7 @@ export async function generateMetadata({ params }: ShowDetailPageProps): Promise
         });
     }
 
-    const showDate = new Date(show.date).toLocaleDateString('fr-FR', {
-        weekday: 'long',
-        year: 'numeric',
-        month: 'long',
-        day: 'numeric'
-    });
+    const showDate = formatShowDate(show.date);
 
     const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://www.tipaix.fr';
 
@@ -67,6 +63,7 @@ export default async function ShowDetailPage({ params }: ShowDetailPageProps) {
           src={show.image}
           alt={show.title}
           fill
+          sizes="100vw"
           className="object-cover filter sepia-[0.4] contrast-110"
         />
         <div className="absolute inset-0 bg-linear-to-b from-black via-black/80 to-black"></div>
@@ -90,6 +87,7 @@ export default async function ShowDetailPage({ params }: ShowDetailPageProps) {
                 src={show.image}
                 alt={show.title}
                 fill
+                sizes="(min-width: 1024px) 1024px, 100vw"
                 className="object-cover filter sepia-[0.3] contrast-110"
               />
               <div className="absolute inset-0 bg-linear-to-t from-black via-transparent to-transparent"></div>
@@ -115,12 +113,7 @@ export default async function ShowDetailPage({ params }: ShowDetailPageProps) {
                     <div className="flex items-center">
                       <span className="text-2xl mr-4 opacity-70">📅</span>
                       <span className="text-purple-200 font-light">
-                        {new Date(show.date).toLocaleDateString('fr-FR', {
-                          weekday: 'long',
-                          year: 'numeric',
-                          month: 'long',
-                          day: 'numeric'
-                        })}
+                        {formatShowDate(show.date)}
                       </span>
                     </div>
                     <div className="flex items-center">

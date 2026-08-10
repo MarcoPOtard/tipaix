@@ -57,10 +57,13 @@ export default function Header() {
             </a>
           </div>
 
-          <button 
+          <button
+            type="button"
             onClick={() => setIsOpen(!isOpen)}
             className="md:hidden text-white hover:text-purple-100 transition-colors p-2"
             aria-label="Menu mobile"
+            aria-expanded={isOpen}
+            aria-controls="mobile-menu"
           >
             <div className="w-6 h-6 flex flex-col justify-center items-center space-y-1">
               <span className={`w-6 h-0.5 bg-current transition-all duration-300 ${isOpen ? 'rotate-45 translate-y-1.5' : ''}`}></span>
@@ -71,7 +74,7 @@ export default function Header() {
         </div>
 
         {isOpen && (
-          <div className="md:hidden pb-6 border-t border-tipaix-light border-opacity-30 mt-4 pt-4">
+          <div id="mobile-menu" className="md:hidden pb-6 border-t border-tipaix-light border-opacity-30 mt-4 pt-4">
             <div className="flex flex-col space-y-4">
               <Link 
                 href="/" 

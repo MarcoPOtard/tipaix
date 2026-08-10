@@ -13,7 +13,7 @@ interface MetadataConfig {
 }
 
 const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://www.tipaix.fr';
-const defaultImage = `${baseUrl}/images/og-image.jpg`;
+const defaultImage = `${baseUrl}/images/groupe-match.jpeg`;
 
 export function generateMetadata(config: MetadataConfig = {}): Metadata {
     const {
@@ -97,13 +97,13 @@ export function generateMetadata(config: MetadataConfig = {}): Metadata {
             },
         },
         
-        // Verification (à personnaliser avec vos codes)
-        verification: {
-            google: 'your-google-verification-code',
-            // yandex: 'your-yandex-verification-code',
-            // yahoo: 'your-yahoo-verification-code',
-        },
-        
+        // Verification (définir NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION pour l'activer)
+        ...(process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION && {
+            verification: {
+                google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION,
+            },
+        }),
+
         // App specific
         applicationName: 'Tipaix',
         category: 'Entertainment',

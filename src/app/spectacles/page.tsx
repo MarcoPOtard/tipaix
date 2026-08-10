@@ -1,5 +1,6 @@
 import ShowCard from '@/components/ShowCard';
 import { mockShows } from '@/data/shows';
+import { getUpcomingShows } from '@/lib/shows';
 import Image from 'next/image';
 import { generateMetadata } from '@/lib/metadata';
 import { Metadata } from 'next';
@@ -20,13 +21,7 @@ export const metadata: Metadata = generateMetadata({
 });
 
 export default function SpectaclesPage() {
-    const today = new Date();
-    today.setHours(0, 0, 0, 0); // Reset time to start of day for accurate comparison
-
-    const upcomingShows = mockShows.filter(show => {
-        const showDate = new Date(show.date);
-        return showDate >= today;
-    });
+    const upcomingShows = getUpcomingShows(mockShows);
 
     return (
         <div className="relative min-h-screen bg-black">
@@ -36,6 +31,7 @@ export default function SpectaclesPage() {
                     src="/images/troupe/troupe1.jpeg"
                     alt="La Tipaix"
                     fill
+                    sizes="100vw"
                     className="object-cover filter sepia-[0.4] contrast-110"
                 />
                 <div className="absolute inset-0 bg-linear-to-b from-black via-black/85 to-black"></div>
@@ -75,9 +71,9 @@ export default function SpectaclesPage() {
                     </div>
 
                     <div className=" mb-16 max-w-2xl mx-auto">
-                        <h1 className="font-gagalin text-center text-5xl md:text-6xl text-tipaix-light mb-8 tracking-wider">
+                        <h2 className="font-gagalin text-center text-5xl md:text-6xl text-tipaix-light mb-8 tracking-wider">
                             Les différents spectacles
-                        </h1>
+                        </h2>
                         <div className="w-24 h-px bg-tipaix-light mx-auto mb-8"></div>
 
                         <div className="space-y-6 text-lg text-purple-200 font-light leading-relaxed">

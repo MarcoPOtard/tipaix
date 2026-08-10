@@ -25,6 +25,7 @@ export default function MentionsLegalesPage() {
                     src="/images/troupe/troupe1.jpeg"
                     alt="La Tipaix"
                     fill
+                    sizes="100vw"
                     className="object-cover filter sepia-[0.4] contrast-110"
                 />
                 <div className="absolute inset-0 bg-linear-to-b from-black via-black/90 to-black"></div>

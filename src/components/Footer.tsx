@@ -35,7 +35,7 @@ export default function Footer() {
                         <ul className="space-y-3">
                             <li>
                                 <Link
-                                    href=""
+                                    href="/"
                                     className="text-purple-100 hover:text-tipaix-light transition-colors font-light tracking-wide"
                                 >
                                     Accueil
@@ -98,7 +98,7 @@ export default function Footer() {
                 <div className="border-t border-tipaix-light border-opacity-20 mt-12 pt-8">
                     <div className="text-center">
                         <p className="text-purple-200 font-light text-sm tracking-wide">
-                            © 2025 MICIM • Malicieuse et Intenable Compagnie
+                            © {new Date().getFullYear()} MICIM • Malicieuse et Intenable Compagnie
                             d&apos;Impro Musicale
                         </p>
                         <p className="text-purple-300 font-light text-xs mt-2 italic">

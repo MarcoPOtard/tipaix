@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import ShowCard from "@/components/ShowCard";
 import { mockShows } from "@/data/shows";
+import { getUpcomingShows } from "@/lib/shows";
 import { generateMetadata } from "@/lib/metadata";
 import { Metadata } from 'next';
 
@@ -21,15 +22,7 @@ export const metadata: Metadata = generateMetadata({
 });
 
 export default function HomePage() {
-    const today = new Date();
-    today.setHours(0, 0, 0, 0); // Reset time to start of day for accurate comparison
-
-    const upcomingShows = mockShows
-        .filter(show => {
-            const showDate = new Date(show.date);
-            return showDate >= today;
-        })
-        .slice(0, 3);
+    const upcomingShows = getUpcomingShows(mockShows).slice(0, 3);
 
     return (
         <div className="relative">
@@ -41,6 +34,7 @@ export default function HomePage() {
                         src="/images/groupe-match.jpeg"
                         alt="La Tipaix en action"
                         fill
+                        sizes="100vw"
                         className="object-cover filter sepia-[0.4] contrast-110"
                         priority
                     />
@@ -155,6 +149,7 @@ export default function HomePage() {
                                         src="/images/troupe/troupe1.jpeg"
                                         alt="Compagnie Tipaix"
                                         fill
+                                        sizes="(min-width: 1024px) 50vw, 100vw"
                                         className="object-cover filter sepia-[0.3] contrast-110 group-hover:scale-105 transition-transform duration-700"
                                     />
                                     <div className="absolute inset-0 bg-tipaix-light mix-blend-multiply opacity-10 group-hover:opacity-15 transition-opacity duration-500"></div>

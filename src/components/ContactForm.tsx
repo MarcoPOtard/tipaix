@@ -1,31 +1,24 @@
 'use client';
+import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { z } from 'zod';
-import { ContactForm as ContactFormType } from '@/types';
+import { contactSchema, ContactFormData } from '@/lib/schemas/contact';
 
-const contactSchema = z.object({
-  name: z.string().min(2, 'Le nom doit contenir au moins 2 caractères'),
-  email: z.string().email('Veuillez entrer une adresse email valide'),
-  subject: z.string().min(5, 'Le sujet doit contenir au moins 5 caractères'),
-  message: z.string().min(10, 'Le message doit contenir au moins 10 caractères'),
-  consent: z.boolean().refine(val => val === true, {
-    message: 'Vous devez accepter la politique de confidentialité pour envoyer votre message'
-  }),
-  newsletter: z.boolean().optional(),
-});
+type SubmitStatus = { type: 'success' | 'error'; message: string } | null;
 
 export default function ContactForm() {
+  const [status, setStatus] = useState<SubmitStatus>(null);
   const {
     register,
     handleSubmit,
     formState: { errors, isSubmitting },
     reset
-  } = useForm<ContactFormType>({
+  } = useForm<ContactFormData>({
     resolver: zodResolver(contactSchema)
   });
 
-  const onSubmit = async (data: ContactFormType) => {
+  const onSubmit = async (data: ContactFormData) => {
+    setStatus(null);
     try {
       const response = await fetch('/api/contact', {
         method: 'POST',
@@ -36,15 +29,21 @@ export default function ContactForm() {
       });
 
       if (response.ok) {
-        alert('Votre message a été transmis avec succès !');
+        setStatus({ type: 'success', message: 'Votre message a été transmis avec succès !' });
         reset();
       } else {
         const error = await response.json();
-        alert(`Erreur lors de l'envoi : ${error.error || 'Une erreur est survenue'}`);
+        setStatus({
+          type: 'error',
+          message: `Erreur lors de l'envoi : ${error.error || 'Une erreur est survenue'}`,
+        });
       }
     } catch (error) {
       console.error('Erreur lors de l\'envoi du formulaire:', error);
-      alert('Une erreur est survenue lors de l\'envoi de votre message. Veuillez réessayer.');
+      setStatus({
+        type: 'error',
+        message: 'Une erreur est survenue lors de l\'envoi de votre message. Veuillez réessayer.',
+      });
     }
   };
 
@@ -152,6 +151,20 @@ export default function ContactForm() {
           Je souhaite recevoir la newsletter de La Tipaix pour être informé(e) des prochains spectacles et actualités de la compagnie.
         </label>
       </div>
+
+      {status && (
+        <div
+          role="status"
+          aria-live="polite"
+          className={`p-4 border text-sm font-light ${
+            status.type === 'success'
+              ? 'border-tipaix-light text-tipaix-light bg-tipaix-light bg-opacity-5'
+              : 'border-red-400 text-red-400 bg-red-400/5'
+          }`}
+        >
+          {status.message}
+        </div>
+      )}
 
       <button
         type="submit"

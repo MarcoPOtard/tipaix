@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { Show } from '@/types';
+import { formatShowDate } from '@/lib/shows';
 
 interface ShowCardProps {
   show: Show;
@@ -21,6 +22,7 @@ export default function ShowCard({ show }: ShowCardProps) {
           src={show.image}
           alt={show.title}
           fill
+          sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
           className="object-cover group-hover:scale-110 transition-transform duration-700 filter sepia-[0.3] contrast-110"
         />
         
@@ -38,12 +40,7 @@ export default function ShowCard({ show }: ShowCardProps) {
           <div className="flex items-center text-purple-100">
             <span className="w-2 h-2 bg-tipaix-light rounded-full mr-3 shrink-0"></span>
             <span className="font-light">
-              {new Date(show.date).toLocaleDateString('fr-FR', { 
-                weekday: 'long', 
-                month: 'long', 
-                day: 'numeric',
-                year: 'numeric'
-              })}
+              {formatShowDate(show.date)}
             </span>
           </div>
           <div className="flex items-center text-purple-100">

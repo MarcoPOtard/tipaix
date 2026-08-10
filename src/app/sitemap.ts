@@ -2,7 +2,7 @@ import { MetadataRoute } from 'next';
 import { mockShows } from '@/data/shows';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://tipaix.com';
+    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://www.tipaix.fr';
     
     // Pages statiques
     const staticPages = [

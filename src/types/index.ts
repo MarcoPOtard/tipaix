@@ -16,12 +16,3 @@ export interface TroupeMember {
   image: string;
   bio: string;
 }
-
-export interface ContactForm {
-  name: string;
-  email: string;
-  subject: string;
-  message: string;
-  consent: boolean;
-  newsletter?: boolean;
-}

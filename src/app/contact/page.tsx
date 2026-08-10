@@ -26,6 +26,7 @@ export default function ContactPage() {
           src="/images/troupe/troupe1.jpeg"
           alt="La Tipaix"
           fill
+          sizes="100vw"
           className="object-cover filter sepia-[0.4] contrast-110"
         />
         <div className="absolute inset-0 bg-linear-to-b from-black via-black/80 to-black"></div>
@@ -61,16 +62,6 @@ export default function ContactPage() {
                   </h2>
                   
                   <div className="space-y-8">
-                    {/* <div>
-                      <h3 className="font-medium text-tipaix-light mb-3 tracking-wide">Correspondance</h3>
-                      <p className="text-purple-200 font-light">micim@micim.fr</p>
-                    </div>
-
-                    <div>
-                      <h3 className="font-medium text-tipaix-light mb-3 tracking-wide">Téléphone</h3>
-                      <p className="text-purple-200 font-light">06 12 34 56 78</p>
-                    </div> */}
-
                     <div>
                       <h3 className="font-medium text-tipaix-light mb-3 tracking-wide">Lieu de Répétition</h3>
                       <p className="text-purple-200 font-light leading-relaxed">

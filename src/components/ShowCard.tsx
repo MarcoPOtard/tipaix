@@ -4,10 +4,9 @@ import { Show } from '@/types';
 
 interface ShowCardProps {
   show: Show;
-  index: number;
 }
 
-export default function ShowCard({ show, index }: ShowCardProps) {
+export default function ShowCard({ show }: ShowCardProps) {
   return (
     <div className="group relative bg-black border border-tipaix-light border-opacity-30 rounded-lg overflow-hidden hover:border-tipaix-light transition-all duration-500">
       {/* Decorative corners */}
@@ -17,7 +16,7 @@ export default function ShowCard({ show, index }: ShowCardProps) {
       <div className="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-tipaix-light z-10"></div>
       
       <div className="relative h-64 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent z-20"></div>
+        <div className="absolute inset-0 bg-linear-to-t from-black via-transparent to-transparent z-20"></div>
         <Image
           src={show.image}
           alt={show.title}
@@ -37,7 +36,7 @@ export default function ShowCard({ show, index }: ShowCardProps) {
         
         <div className="space-y-2 text-sm mb-6">
           <div className="flex items-center text-purple-100">
-            <span className="w-2 h-2 bg-tipaix-light rounded-full mr-3 flex-shrink-0"></span>
+            <span className="w-2 h-2 bg-tipaix-light rounded-full mr-3 shrink-0"></span>
             <span className="font-light">
               {new Date(show.date).toLocaleDateString('fr-FR', { 
                 weekday: 'long', 
@@ -48,11 +47,11 @@ export default function ShowCard({ show, index }: ShowCardProps) {
             </span>
           </div>
           <div className="flex items-center text-purple-100">
-            <span className="w-2 h-2 bg-tipaix-light rounded-full mr-3 flex-shrink-0"></span>
+            <span className="w-2 h-2 bg-tipaix-light rounded-full mr-3 shrink-0"></span>
             <span className="font-light">{show.time}</span>
           </div>
           <div className="flex items-center text-purple-100">
-            <span className="w-2 h-2 bg-tipaix-light rounded-full mr-3 flex-shrink-0"></span>
+            <span className="w-2 h-2 bg-tipaix-light rounded-full mr-3 shrink-0"></span>
             <span className="font-light">{show.venue}</span>
           </div>
         </div>

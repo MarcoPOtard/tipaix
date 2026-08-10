@@ -96,7 +96,7 @@ L'expéditeur a donné son consentement pour le traitement de ses données perso
 
         if (error instanceof z.ZodError) {
             return NextResponse.json(
-                { error: 'Données invalides', details: error.errors },
+                { error: 'Données invalides', details: error.issues },
                 { status: 400 }
             );
         }

@@ -28,7 +28,7 @@ export default function TroupePage() {
                     fill
                     className="object-cover filter sepia-[0.4] contrast-110"
                 />
-                <div className="absolute inset-0 bg-gradient-to-b from-black via-black/85 to-black"></div>
+                <div className="absolute inset-0 bg-linear-to-b from-black via-black/85 to-black"></div>
                 <div className="absolute inset-0 bg-tipaix-light mix-blend-multiply opacity-5"></div>
             </div>
 
@@ -40,10 +40,10 @@ export default function TroupePage() {
                         </h1>
                         <div className="w-24 h-px bg-tipaix-light mx-auto mb-8"></div>
                         <p className="text-xl text-purple-200 font-light italic max-w-4xl mx-auto leading-relaxed">
-                            "Une famille de jeunes artistes unis par l'envie
-                            d'apprendre l'improvisation théâtrale, où chaque
+                            &quot;Une famille de jeunes artistes unis par l&apos;envie
+                            d&apos;apprendre l&apos;improvisation théâtrale, où chaque
                             personnalité contribue à la magie collective de la
-                            création spontanée."
+                            création spontanée.&quot;
                         </p>
                     </div>
 
@@ -78,10 +78,10 @@ export default function TroupePage() {
 
                                 <div className="space-y-6 text-lg text-purple-200 font-light leading-relaxed">
                                     <p>
-                                        La Tipaix pour troupe d'improvisation du
-                                        pays d'Aix est née de l'initiative d'un
-                                        improvisateur d'Aix en Provence membre
-                                        de l'association Les Fondus depuis près
+                                        La Tipaix pour troupe d&apos;improvisation du
+                                        pays d&apos;Aix est née de l&apos;initiative d&apos;un
+                                        improvisateur d&apos;Aix en Provence membre
+                                        de l&apos;association Les Fondus depuis près
                                         de 15 ans.
                                         <br />
                                         Sébastien Chombart ou Séboune pour les
@@ -89,18 +89,18 @@ export default function TroupePage() {
                                     </p>
 
                                     <p>
-                                        L'objectif de ce projet est de faire
-                                        découvrir l'art de l'improvisation
+                                        L&apos;objectif de ce projet est de faire
+                                        découvrir l&apos;art de l&apos;improvisation
                                         théâtrale auprès des adolescents au
-                                        travers du concept phare de l'impro !!
+                                        travers du concept phare de l&apos;impro !!
                                         <br />
                                         <strong>
-                                            "Le match d'improvisation"
+                                            &quot;Le match d&apos;improvisation&quot;
                                         </strong>
                                     </p>
 
                                     <p>
-                                        Sous la forme d'un jeu théâtrale, le
+                                        Sous la forme d&apos;un jeu théâtrale, le
                                         jeune improvisateur ou improvisatrice va
                                         développer de puissants outils
                                         personnels.
@@ -112,7 +112,7 @@ export default function TroupePage() {
                                         l’Expression, Gestion des Émotions,
                                         Développement de l’Adaptabilité,
                                         Renforcement de la Concentration et
-                                        construction d'une pensée critique.
+                                        construction d&apos;une pensée critique.
                                     </p>
                                 </div>
                             </div>
@@ -121,7 +121,7 @@ export default function TroupePage() {
 
                     {/* Philosophie */}
                     <section>
-                        <div className="bg-black bg-opacity-60 border border-tipaix-light border-opacity-20 backdrop-blur-sm p-12">
+                        <div className="bg-black bg-opacity-60 border border-tipaix-light border-opacity-20 backdrop-blur-xs p-12">
                             <div className="text-center mb-12">
                                 <h2 className="font-gagalin text-4xl text-tipaix-light mb-8 tracking-wide">
                                     Notre Philosophie Artistique

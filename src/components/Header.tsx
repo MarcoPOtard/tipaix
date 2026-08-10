@@ -7,11 +7,11 @@ export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <header className="bg-gradient-to-r from-tipaix-primary to-tipaix-dark border-b border-tipaix-light relative overflow-hidden">
+    <header className="bg-linear-to-r from-tipaix-primary to-tipaix-dark border-b border-tipaix-light relative overflow-hidden">
       {/* Decorative elements */}
       <div className="absolute inset-0 opacity-10">
-        <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-tipaix-light to-transparent"></div>
-        <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-tipaix-light to-transparent"></div>
+        <div className="absolute top-0 left-0 w-full h-1 bg-linear-to-r from-transparent via-tipaix-light to-transparent"></div>
+        <div className="absolute bottom-0 left-0 w-full h-1 bg-linear-to-r from-transparent via-tipaix-light to-transparent"></div>
       </div>
       
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -42,8 +42,8 @@ export default function Header() {
                 className="relative text-white font-light tracking-wide hover:text-purple-100 transition-all duration-300 group py-2"
               >
                 <span className="relative z-10">{item.label}</span>
-                <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-tipaix-light to-tipaix-primary group-hover:w-full transition-all duration-500"></div>
-                <div className="absolute inset-0 bg-white opacity-0 group-hover:opacity-5 rounded transition-opacity duration-300"></div>
+                <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-linear-to-r from-tipaix-light to-tipaix-primary group-hover:w-full transition-all duration-500"></div>
+                <div className="absolute inset-0 bg-white opacity-0 group-hover:opacity-5 rounded-sm transition-opacity duration-300"></div>
               </Link>
             ))}
             <a 
@@ -53,7 +53,7 @@ export default function Header() {
               className="relative text-white font-light tracking-wide hover:text-purple-100 transition-all duration-300 group py-2"
             >
               <span className="relative z-10">Micim</span>
-              <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-tipaix-light to-tipaix-primary group-hover:w-full transition-all duration-500"></div>
+              <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-linear-to-r from-tipaix-light to-tipaix-primary group-hover:w-full transition-all duration-500"></div>
             </a>
           </div>
 
@@ -75,28 +75,28 @@ export default function Header() {
             <div className="flex flex-col space-y-4">
               <Link 
                 href="/" 
-                className="text-white hover:text-purple-100 transition-colors font-light tracking-wide py-2 px-3 hover:bg-white hover:bg-opacity-10 rounded"
+                className="text-white hover:text-purple-100 transition-colors font-light tracking-wide py-2 px-3 hover:bg-white hover:bg-opacity-10 rounded-sm"
                 onClick={() => setIsOpen(false)}
               >
                 Accueil
               </Link>
               <Link 
                 href="/spectacles" 
-                className="text-white hover:text-purple-100 transition-colors font-light tracking-wide py-2 px-3 hover:bg-white hover:bg-opacity-10 rounded"
+                className="text-white hover:text-purple-100 transition-colors font-light tracking-wide py-2 px-3 hover:bg-white hover:bg-opacity-10 rounded-sm"
                 onClick={() => setIsOpen(false)}
               >
                 Spectacles
               </Link>
               <Link 
                 href="/troupe" 
-                className="text-white hover:text-purple-100 transition-colors font-light tracking-wide py-2 px-3 hover:bg-white hover:bg-opacity-10 rounded"
+                className="text-white hover:text-purple-100 transition-colors font-light tracking-wide py-2 px-3 hover:bg-white hover:bg-opacity-10 rounded-sm"
                 onClick={() => setIsOpen(false)}
               >
                 La Tipaix
               </Link>
               <Link 
                 href="/contact" 
-                className="text-white hover:text-purple-100 transition-colors font-light tracking-wide py-2 px-3 hover:bg-white hover:bg-opacity-10 rounded"
+                className="text-white hover:text-purple-100 transition-colors font-light tracking-wide py-2 px-3 hover:bg-white hover:bg-opacity-10 rounded-sm"
                 onClick={() => setIsOpen(false)}
               >
                 Contact
@@ -105,7 +105,7 @@ export default function Header() {
                 href="https://www.micim.fr" 
                 target="_blank" 
                 rel="noopener noreferrer" 
-                className="text-white hover:text-purple-100 transition-colors font-light tracking-wide py-2 px-3 hover:bg-white hover:bg-opacity-10 rounded"
+                className="text-white hover:text-purple-100 transition-colors font-light tracking-wide py-2 px-3 hover:bg-white hover:bg-opacity-10 rounded-sm"
               >
                 Micim
               </a>

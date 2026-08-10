@@ -28,7 +28,7 @@ export default function ContactPage() {
           fill
           className="object-cover filter sepia-[0.4] contrast-110"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black via-black/80 to-black"></div>
+        <div className="absolute inset-0 bg-linear-to-b from-black via-black/80 to-black"></div>
         <div className="absolute inset-0 bg-tipaix-light mix-blend-multiply opacity-5"></div>
       </div>
 
@@ -40,8 +40,8 @@ export default function ContactPage() {
             </h1>
             <div className="w-24 h-px bg-tipaix-light mx-auto mb-8"></div>
             <p className="text-xl text-purple-200 font-light italic max-w-2xl mx-auto">
-              "Une question, une proposition ? Engageons le dialogue et créons ensemble 
-              les prochains chapitres de notre aventure théâtrale."
+              &quot;Une question, une proposition ? Engageons le dialogue et créons ensemble 
+              les prochains chapitres de notre aventure théâtrale.&quot;
             </p>
           </div>
 
@@ -55,7 +55,7 @@ export default function ContactPage() {
                 <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-tipaix-light"></div>
                 <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-tipaix-light"></div>
                 
-                <div className="bg-black bg-opacity-60 p-8 backdrop-blur-sm">
+                <div className="bg-black bg-opacity-60 p-8 backdrop-blur-xs">
                   <h2 className="font-gagalin text-3xl text-tipaix-light mb-8 tracking-wide">
                     Coordonnées
                   </h2>
@@ -91,10 +91,10 @@ export default function ContactPage() {
                   <div className="mt-12 p-6 border border-tipaix-light border-opacity-30 bg-tipaix-light bg-opacity-5">
                     <h3 className="font-medium text-tipaix-light mb-3 tracking-wide">Rejoindre la Tipaix</h3>
                     <p className="text-purple-200 font-light italic leading-relaxed">
-                      L'art de l'improvisation vous appelle ? Nous accueillons avec plaisir 
-                      les âmes créatives désireuses d'explorer cet univers fascinant.
+                      L&apos;art de l&apos;improvisation vous appelle ? Nous accueillons avec plaisir 
+                      les âmes créatives désireuses d&apos;explorer cet univers fascinant.
                       <br/>
-                      Cours d'essai en septembre.
+                      Cours d&apos;essai en septembre.
                     </p>
                   </div>
                 </div>
@@ -102,7 +102,7 @@ export default function ContactPage() {
             </div>
 
             <div className="order-1 lg:order-2">
-              <div className="bg-black bg-opacity-60 p-8 backdrop-blur-sm border border-tipaix-light border-opacity-20">
+              <div className="bg-black bg-opacity-60 p-8 backdrop-blur-xs border border-tipaix-light border-opacity-20">
                 <h2 className="font-gagalin text-3xl text-tipaix-light mb-8 tracking-wide">
                   Adressez-nous votre Message
                 </h2>

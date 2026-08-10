@@ -60,7 +60,7 @@ export default function ContactForm() {
             type="text"
             id="name"
             inputMode="text"
-            className="w-full px-4 py-3 bg-black bg-opacity-50 border border-tipaix-light border-opacity-30 rounded-none text-purple-100 focus:border-tipaix-light focus:outline-none transition-colors backdrop-blur-sm"
+            className="w-full px-4 py-3 bg-black bg-opacity-50 border border-tipaix-light border-opacity-30 rounded-none text-purple-100 focus:border-tipaix-light focus:outline-hidden transition-colors backdrop-blur-xs"
           />
           {errors.name && (
             <p className="mt-2 text-sm text-red-400 italic">{errors.name.message}</p>
@@ -76,7 +76,7 @@ export default function ContactForm() {
             type="email"
             id="email"
             inputMode="email"
-            className="w-full px-4 py-3 bg-black bg-opacity-50 border border-tipaix-light border-opacity-30 rounded-none text-purple-100 focus:border-tipaix-light focus:outline-none transition-colors backdrop-blur-sm"
+            className="w-full px-4 py-3 bg-black bg-opacity-50 border border-tipaix-light border-opacity-30 rounded-none text-purple-100 focus:border-tipaix-light focus:outline-hidden transition-colors backdrop-blur-xs"
           />
           {errors.email && (
             <p className="mt-2 text-sm text-red-400 italic">{errors.email.message}</p>
@@ -93,7 +93,7 @@ export default function ContactForm() {
           type="text"
           id="subject"
           inputMode="text"
-          className="w-full px-4 py-3 bg-black bg-opacity-50 border border-tipaix-light border-opacity-30 rounded-none text-purple-100 focus:border-tipaix-light focus:outline-none transition-colors backdrop-blur-sm"
+          className="w-full px-4 py-3 bg-black bg-opacity-50 border border-tipaix-light border-opacity-30 rounded-none text-purple-100 focus:border-tipaix-light focus:outline-hidden transition-colors backdrop-blur-xs"
         />
         {errors.subject && (
           <p className="mt-2 text-sm text-red-400 italic">{errors.subject.message}</p>
@@ -108,7 +108,7 @@ export default function ContactForm() {
           {...register('message')}
           id="message"
           rows={6}
-          className="w-full px-4 py-3 bg-black bg-opacity-50 border border-tipaix-light border-opacity-30 rounded-none text-purple-100 focus:border-tipaix-light focus:outline-none transition-colors backdrop-blur-sm resize-none"
+          className="w-full px-4 py-3 bg-black bg-opacity-50 border border-tipaix-light border-opacity-30 rounded-none text-purple-100 focus:border-tipaix-light focus:outline-hidden transition-colors backdrop-blur-xs resize-none"
         />
         {errors.message && (
           <p className="mt-2 text-sm text-red-400 italic">{errors.message.message}</p>
@@ -124,7 +124,7 @@ export default function ContactForm() {
           className="mt-1 w-4 h-4 text-tipaix-light bg-black bg-opacity-50 border border-tipaix-light border-opacity-30 rounded-none focus:ring-tipaix-light focus:ring-1"
         />
         <label htmlFor="consent" className="text-xs text-purple-200 font-light leading-relaxed">
-          J'accepte que mes données personnelles soient collectées et traitées conformément à la{' '}
+          J&apos;accepte que mes données personnelles soient collectées et traitées conformément à la{' '}
           <a 
             href="/mentions-legales" 
             className="text-tipaix-light hover:text-purple-300 underline underline-offset-2 hover:no-underline transition-colors"

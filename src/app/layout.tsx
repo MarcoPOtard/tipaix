@@ -77,7 +77,7 @@ export default function RootLayout({
         />
       </head>
       <body className={inter.className}>
-        <div className="min-h-screen flex flex-col bg-gradient-to-br from-gray-900 via-black to-gray-800">
+        <div className="min-h-screen flex flex-col bg-linear-to-br from-gray-900 via-black to-gray-800">
           <Header />
           <main className="flex-1 relative">
             {children}

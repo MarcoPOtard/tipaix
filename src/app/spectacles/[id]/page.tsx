@@ -69,7 +69,7 @@ export default async function ShowDetailPage({ params }: ShowDetailPageProps) {
           fill
           className="object-cover filter sepia-[0.4] contrast-110"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black via-black/80 to-black"></div>
+        <div className="absolute inset-0 bg-linear-to-b from-black via-black/80 to-black"></div>
         <div className="absolute inset-0 bg-tipaix-light mix-blend-multiply opacity-10"></div>
       </div>
 
@@ -82,17 +82,17 @@ export default async function ShowDetailPage({ params }: ShowDetailPageProps) {
             ← Retour aux Représentations
           </Link>
           
-          <div className="bg-black bg-opacity-70 border border-tipaix-light border-opacity-20 backdrop-blur-sm overflow-hidden">
+          <div className="bg-black bg-opacity-70 border border-tipaix-light border-opacity-20 backdrop-blur-xs overflow-hidden">
             {/* Decorative frame */}
             
-            <div className="relative h-[36rem] overflow-hidden">
+            <div className="relative h-144 overflow-hidden">
               <Image
                 src={show.image}
                 alt={show.title}
                 fill
                 className="object-cover filter sepia-[0.3] contrast-110"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
+              <div className="absolute inset-0 bg-linear-to-t from-black via-transparent to-transparent"></div>
               <div className="absolute inset-0 bg-tipaix-light mix-blend-multiply opacity-15"></div>
               
               {/* Title overlay */}
@@ -138,7 +138,7 @@ export default async function ShowDetailPage({ params }: ShowDetailPageProps) {
                           rel="noopener noreferrer"
                           className="inline-flex items-center text-xs text-purple-100 hover:text-tipaix-light transition-colors font-light tracking-wide underline underline-offset-2 hover:no-underline"
                         >
-                          Voir l'itinéraire
+                          Voir l&apos;itinéraire
                           <svg className="w-3 h-3 ml-2 opacity-70" fill="currentColor" viewBox="0 0 24 24">
                             <path d="M14,3V5H17.59L7.76,14.83L9.17,16.24L19,6.41V10H21V3M19,19H5V5H12V3H5C3.89,3 3,3.9 3,5V19A2,2 0 0,0 21,19V12H19V19Z" />
                           </svg>
@@ -154,7 +154,7 @@ export default async function ShowDetailPage({ params }: ShowDetailPageProps) {
                   </h2>
                   <div className="w-12 h-px bg-tipaix-light mb-8"></div>
                   <p className="text-purple-200 font-light mb-8 leading-relaxed italic">
-                    "Réservez dès à présent ... Et non, pas besoin de réservation. Vous êtes tous les bienvenus gratuitement pour voir les jeunes en pleine actions"
+                    &quot;Réservez dès à présent ... Et non, pas besoin de réservation. Vous êtes tous les bienvenus gratuitement pour voir les jeunes en pleine actions&quot;
                   </p>
                 </div>
               </div>
@@ -166,10 +166,10 @@ export default async function ShowDetailPage({ params }: ShowDetailPageProps) {
                 <div className="w-12 h-px bg-tipaix-light mb-8"></div>
                 <div className="text-purple-200 font-light leading-relaxed text-lg">
                   <p className="mb-6 italic">
-                    "{show.description}"
+                    &quot;{show.description}&quot;
                   </p>
                   <p className="text-sm opacity-80">
-                    Une soirée d'improvisation théâtrale où talent, spontanéité et émotion 
+                    Une soirée d&apos;improvisation théâtrale où talent, spontanéité et émotion 
                     se rencontrent pour créer un spectacle unique et inoubliable.
                   </p>
                 </div>

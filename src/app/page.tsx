@@ -44,13 +44,13 @@ export default function HomePage() {
                         className="object-cover filter sepia-[0.4] contrast-110"
                         priority
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-black/30"></div>
+                    <div className="absolute inset-0 bg-linear-to-t from-black via-black/70 to-black/30"></div>
                     <div className="absolute inset-0 bg-tipaix-light mix-blend-multiply opacity-10"></div>
                 </div>
 
                 {/* Vintage stage curtains effect */}
-                <div className="absolute top-0 left-0 w-full h-20 bg-gradient-to-b from-black to-transparent z-10"></div>
-                <div className="absolute bottom-0 left-0 w-full h-40 bg-gradient-to-t from-black to-transparent z-10"></div>
+                <div className="absolute top-0 left-0 w-full h-20 bg-linear-to-b from-black to-transparent z-10"></div>
+                <div className="absolute bottom-0 left-0 w-full h-40 bg-linear-to-t from-black to-transparent z-10"></div>
 
                 <div className="relative z-20 h-full flex items-start justify-center text-center px-4 pt-56">
                     <div className="max-w-5xl">
@@ -60,14 +60,14 @@ export default function HomePage() {
                             TIPAIX
                         </h1>
 
-                        <div className="text-xl md:text-2xl text-purple-100 mb-4 font-light tracking-[0.1em] uppercase">
-                            Troupe de Théâtre d'Improvisation
+                        <div className="text-xl md:text-2xl text-purple-100 mb-4 font-light tracking-widest uppercase">
+                            Troupe de Théâtre d&apos;Improvisation
                         </div>
 
                         <div className="w-24 h-px bg-tipaix-light mx-auto mb-8"></div>
 
                         <p className="text-lg md:text-xl text-purple-200 mb-12 max-w-3xl mx-auto font-light leading-relaxed italic">
-                            "Pas besoin de texte : juste ton énergie, ton humour et ton imagination pour faire vibrer la scène !"
+                            &quot;Pas besoin de texte : juste ton énergie, ton humour et ton imagination pour faire vibrer la scène !&quot;
                         </p>
 
                         <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
@@ -94,7 +94,7 @@ export default function HomePage() {
             </section>
 
             {/* Upcoming Shows */}
-            <section className="py-20 bg-gradient-to-b from-black to-gray-900 relative">
+            <section className="py-20 bg-linear-to-b from-black to-gray-900 relative">
                 {/* Decorative separator */}
                 <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-24 h-px bg-tipaix-light"></div>
 
@@ -105,8 +105,8 @@ export default function HomePage() {
                         </h2>
                         <div className="w-16 h-px bg-tipaix-light mx-auto mb-6"></div>
                         <p className="text-lg text-purple-200 max-w-2xl mx-auto font-light italic">
-                            "Chaque spectacle est un voyage unique dans
-                            l'univers de l'improvisation théâtrale."
+                            &quot;Chaque spectacle est un voyage unique dans
+                            l&apos;univers de l&apos;improvisation théâtrale.&quot;
                         </p>
                     </div>
 
@@ -119,8 +119,8 @@ export default function HomePage() {
                                 : "grid-cols-1 md:grid-cols-2 lg:grid-cols-3"
                         }`}
                     >
-                        {upcomingShows.map((show, index) => (
-                            <ShowCard key={show.id} show={show} index={index} />
+                        {upcomingShows.map((show) => (
+                            <ShowCard key={show.id} show={show} />
                         ))}
                     </div>
 
@@ -139,7 +139,7 @@ export default function HomePage() {
             </section>
 
             {/* About Section */}
-            <section className="py-20 bg-gradient-to-b from-gray-900 to-black relative">
+            <section className="py-20 bg-linear-to-b from-gray-900 to-black relative">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                         <div className="order-2 lg:order-1">
@@ -164,20 +164,20 @@ export default function HomePage() {
 
                         <div className="order-1 lg:order-2">
                             <h2 className="font-gagalin text-4xl md:text-5xl text-tipaix-light mb-8 tracking-wide">
-                                L'Art de l'Improvisation
+                                L&apos;Art de l&apos;Improvisation
                             </h2>
 
                             <div className="w-16 h-px bg-tipaix-light mb-8"></div>
 
                             <div className="space-y-6 text-lg text-purple-200 font-light leading-relaxed">
                                 <p>
-                                    La Tipaix pour troupe d'improvisation du
-                                    pays d'Aix a pour objectif de faire
-                                    découvrir l'art de l'improvisation théâtrale
+                                    La Tipaix pour troupe d&apos;improvisation du
+                                    pays d&apos;Aix a pour objectif de faire
+                                    découvrir l&apos;art de l&apos;improvisation théâtrale
                                     auprès des adolescents au travers du concept
-                                    phare de l'impro !!
+                                    phare de l&apos;impro !!
                                     <br />
-                                    <strong className="text-xl font-bold">"Le match d'improvisation"</strong>
+                                    <strong className="text-xl font-bold">&quot;Le match d&apos;improvisation&quot;</strong>
                                 </p>
                             </div>
 
@@ -205,16 +205,16 @@ export default function HomePage() {
                 <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
                     <div className="relative">
                         <div className="text-8xl text-tipaix-light opacity-20 font-gagalin leading-none">
-                            "
+                            &quot;
                         </div>
                         <blockquote className="text-2xl md:text-3xl text-purple-200 font-light italic leading-relaxed -mt-12 mb-8">
-                            Le théâtre d'improvisation n'est pas seulement un
-                            spectacle, c'est un art de vivre, une philosophie de
-                            l'instant présent où chaque moment compte et chaque
+                            Le théâtre d&apos;improvisation n&apos;est pas seulement un
+                            spectacle, c&apos;est un art de vivre, une philosophie de
+                            l&apos;instant présent où chaque moment compte et chaque
                             émotion trouve sa vérité.
                         </blockquote>
                         <div className="text-8xl text-tipaix-light opacity-20 font-gagalin leading-none float-right -mb-8">
-                            "
+                            &quot;
                         </div>
                     </div>
 

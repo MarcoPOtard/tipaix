@@ -5,7 +5,7 @@ export default function Footer() {
     return (
         <footer className="bg-black border-t border-tipaix-light border-opacity-30 relative">
             {/* Decorative curtain effect */}
-            <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-tipaix-light to-transparent"></div>
+            <div className="absolute top-0 left-0 w-full h-1 bg-linear-to-r from-transparent via-tipaix-light to-transparent"></div>
 
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
@@ -19,12 +19,12 @@ export default function Footer() {
                                 className="mx-auto md:ms-0"
                             />
                                 <div className="text-xs text-purple-200 tracking-[0.15em] uppercase ml-0">
-                                    Théâtre d'Improvisation
+                                    Théâtre d&apos;Improvisation
                                 </div>
                         </div>
                         <p className="text-purple-100 font-light leading-relaxed italic">
-                            "L'art de créer dans l'instant, la magie du théâtre
-                            spontané."
+                            &quot;L&apos;art de créer dans l&apos;instant, la magie du théâtre
+                            spontané.&quot;
                         </p>
                     </div>
 
@@ -102,15 +102,15 @@ export default function Footer() {
                             d&apos;Impro Musicale
                         </p>
                         <p className="text-purple-300 font-light text-xs mt-2 italic">
-                            "Chaque représentation est unique, chaque moment est
-                            éphémère."
+                            &quot;Chaque représentation est unique, chaque moment est
+                            éphémère.&quot;
                         </p>
                     </div>
                 </div>
             </div>
 
             {/* Bottom decorative line */}
-            <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-tipaix-light to-transparent opacity-50"></div>
+            <div className="absolute bottom-0 left-0 w-full h-1 bg-linear-to-r from-transparent via-tipaix-light to-transparent opacity-50"></div>
         </footer>
     );
 }

@@ -27,7 +27,7 @@ export default function MentionsLegalesPage() {
                     fill
                     className="object-cover filter sepia-[0.4] contrast-110"
                 />
-                <div className="absolute inset-0 bg-gradient-to-b from-black via-black/90 to-black"></div>
+                <div className="absolute inset-0 bg-linear-to-b from-black via-black/90 to-black"></div>
                 <div className="absolute inset-0 bg-tipaix-light mix-blend-multiply opacity-5"></div>
             </div>
 
@@ -40,7 +40,7 @@ export default function MentionsLegalesPage() {
                         <div className="w-24 h-px bg-tipaix-light mx-auto"></div>
                     </div>
 
-                    <div className="bg-black bg-opacity-70 border border-tipaix-light border-opacity-20 backdrop-blur-sm">
+                    <div className="bg-black bg-opacity-70 border border-tipaix-light border-opacity-20 backdrop-blur-xs">
                         {/* Decorative frame */}
                         <div className="absolute -inset-4 -z-10 border border-tipaix-light border-opacity-10"></div>
 
@@ -61,7 +61,7 @@ export default function MentionsLegalesPage() {
                                         d‘Impro Musicale
                                     </p>
                                     <p>Association loi 1901</p>
-                                    <p>124 boulevard de l'égalité - Les florentines A1</p>
+                                    <p>124 boulevard de l&apos;égalité - Les florentines A1</p>
                                     <p>13320 Bouc Bel Air</p>
                                     <p>Email : micim@micim.fr</p>
                                     <p>
@@ -84,7 +84,7 @@ export default function MentionsLegalesPage() {
                                 </h2>
                                 <div className="w-12 h-px bg-tipaix-light mb-6"></div>
                                 <p className="text-purple-200 font-light leading-relaxed">
-                                    Président de l'association MICIM
+                                    Président de l&apos;association MICIM
                                 </p>
                             </section>
 
@@ -114,7 +114,7 @@ export default function MentionsLegalesPage() {
                                     <p>
                                         Le contenu de ce site web (textes,
                                         images, vidéos, etc.) est la propriété
-                                        de l'association MICIM et de La Tipaix,
+                                        de l&apos;association MICIM et de La Tipaix,
                                         sauf mention contraire. Toute
                                         reproduction, même partielle, est
                                         interdite sans autorisation écrite
@@ -146,7 +146,7 @@ export default function MentionsLegalesPage() {
                                         nom, adresse email, sujet et contenu du
                                         message. Si vous cochez la case newsletter,
                                         votre adresse email sera également conservée
-                                        pour l'envoi de nos actualités.
+                                        pour l&apos;envoi de nos actualités.
                                     </p>
                                     <p>
                                         <span className="text-tipaix-light font-medium">
@@ -154,7 +154,7 @@ export default function MentionsLegalesPage() {
                                         </span>{' '}
                                         ces données sont utilisées exclusivement
                                         pour répondre à vos demandes de
-                                        renseignements et, si vous l'avez souhaité,
+                                        renseignements et, si vous l&apos;avez souhaité,
                                         pour vous envoyer notre newsletter avec nos
                                         actualités et informations sur nos spectacles.
                                     </p>
@@ -189,17 +189,17 @@ export default function MentionsLegalesPage() {
                                 <div className="w-12 h-px bg-tipaix-light mb-6"></div>
                                 <div className="text-purple-200 font-light space-y-4 leading-relaxed">
                                     <p>
-                                        Conformément à la loi "Informatique et
-                                        Libertés" du 6 janvier 1978 modifiée et
+                                        Conformément à la loi &quot;Informatique et
+                                        Libertés&quot; du 6 janvier 1978 modifiée et
                                         au Règlement Général sur la Protection
-                                        des Données (RGPD), vous disposez d'un
-                                        droit d'accès, de rectification, de
-                                        portabilité et d'effacement de vos
+                                        des Données (RGPD), vous disposez d&apos;un
+                                        droit d&apos;accès, de rectification, de
+                                        portabilité et d&apos;effacement de vos
                                         données.
                                     </p>
                                     <p>
                                         Vos données ne sont pas transmises à des
-                                        tiers et ne font l'objet d'aucune
+                                        tiers et ne font l&apos;objet d&apos;aucune
                                         commercialisation.
                                     </p>
                                     <p>
@@ -233,16 +233,16 @@ export default function MentionsLegalesPage() {
                                 <div className="w-12 h-px bg-tipaix-light mb-6"></div>
                                 <div className="text-purple-200 font-light space-y-4 leading-relaxed">
                                     <p>
-                                        L'association MICIM s'efforce d'assurer
-                                        l'exactitude et la mise à jour des
+                                        L&apos;association MICIM s&apos;efforce d&apos;assurer
+                                        l&apos;exactitude et la mise à jour des
                                         informations diffusées sur ce site.
                                         Toutefois, elle ne peut garantir
-                                        l'exactitude, la précision ou
-                                        l'exhaustivité des informations mises à
+                                        l&apos;exactitude, la précision ou
+                                        l&apos;exhaustivité des informations mises à
                                         disposition.
                                     </p>
                                     <p>
-                                        En conséquence, l'association décline
+                                        En conséquence, l&apos;association décline
                                         toute responsabilité pour toute
                                         imprécision, inexactitude ou omission
                                         portant sur des informations disponibles

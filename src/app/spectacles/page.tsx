@@ -38,7 +38,7 @@ export default function SpectaclesPage() {
                     fill
                     className="object-cover filter sepia-[0.4] contrast-110"
                 />
-                <div className="absolute inset-0 bg-gradient-to-b from-black via-black/85 to-black"></div>
+                <div className="absolute inset-0 bg-linear-to-b from-black via-black/85 to-black"></div>
                 <div className="absolute inset-0 bg-tipaix-light mix-blend-multiply opacity-5"></div>
             </div>
 
@@ -50,10 +50,10 @@ export default function SpectaclesPage() {
                         </h1>
                         <div className="w-24 h-px bg-tipaix-light mx-auto mb-8"></div>
                         <p className="text-xl text-purple-200 font-light italic max-w-3xl mx-auto leading-relaxed">
-                            "Chaque représentation est un voyage unique dans
-                            l'univers de l'improvisation théâtrale, où
-                            l'authenticité rencontre la virtuosité, où le
-                            spontané côtoie le maîtrisé."
+                            &quot;Chaque représentation est un voyage unique dans
+                            l&apos;univers de l&apos;improvisation théâtrale, où
+                            l&apos;authenticité rencontre la virtuosité, où le
+                            spontané côtoie le maîtrisé.&quot;
                         </p>
                     </div>
 
@@ -69,8 +69,8 @@ export default function SpectaclesPage() {
                                 : 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3'
                         }`}
                     >
-                        {upcomingShows.map((show, index) => (
-                            <ShowCard key={show.id} show={show} index={index} />
+                        {upcomingShows.map((show) => (
+                            <ShowCard key={show.id} show={show} />
                         ))}
                     </div>
 
